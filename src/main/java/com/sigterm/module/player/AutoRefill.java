@@ -5,7 +5,6 @@ import com.sigterm.module.Module;
 import com.sigterm.module.Setting;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.item.ItemStack;
-import org.lwjgl.glfw.GLFW;
 
 public class AutoRefill extends Module {
     private final Setting threshold;
@@ -28,10 +27,19 @@ public class AutoRefill extends Module {
         if (mainHand.getCount() > (int) threshold.value) return;
 
         var container = mc().player.containerMenu;
-        // Get selected slot via getInventory() accessor
-        int selectedSlot = mc().player.getInventory().getSelected();
-        int heldSlot = selectedSlot + 36;
 
+        // Find which hotbar slot holds our item (slots 36-44 in container)
+        int heldSlot = -1;
+        for (int i = 36; i <= 44; i++) {
+            ItemStack hs = container.slots.get(i).getItem();
+            if (ItemStack.isSameItemSameComponents(hs, mainHand) && hs.getCount() == mainHand.getCount()) {
+                heldSlot = i;
+                break;
+            }
+        }
+        if (heldSlot == -1) return;
+
+        // Find matching stack in main inventory (slots 9-35)
         for (int i = 9; i < 36; i++) {
             ItemStack stack = container.slots.get(i).getItem();
             if (!stack.isEmpty() && ItemStack.isSameItemSameComponents(stack, mainHand)) {
