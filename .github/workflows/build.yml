@@ -10,29 +10,15 @@ jobs:
       - uses: actions/setup-java@v4
         with: {java-version: '21', distribution: 'temurin'}
       - uses: gradle/actions/setup-gradle@v4
-      - name: Build
-        run: |
-          chmod +x gradlew
-          ./gradlew --no-build-cache build 2>&1 | tee /tmp/build.log || true
-      - name: Upload build log
-        if: always()
-        run: |
-          git config user.email 'action@github.com'
-          git config user.name 'CI'
-          cp /tmp/build.log build_output.txt || true
-          git add build_output.txt || true
-          git commit -m 'ci: build log' || true
-          git push || true
+      - run: chmod +x gradlew && ./gradlew --no-build-cache build
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           JAR=$(ls build/libs/SigTermClient-*.jar 2>/dev/null | grep -v sources | grep -v dev | head -1)
+          echo "JAR: $JAR"
           if [ -n "$JAR" ]; then
             gh release delete v1.0.0 --yes 2>/dev/null || true
             gh release create v1.0.0 "$JAR" --title 'SigTerm Client v1.0.0' \
-              --notes 'Minecraft 1.21.11 utility client. RIGHT SHIFT to open GUI.'
-          else
-            echo 'Build failed'
-            exit 1
+              --notes 'MC 1.21.11 utility client. RIGHT SHIFT to open GUI (rebindable).'
           fi
