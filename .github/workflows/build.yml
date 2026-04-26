@@ -16,9 +16,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           JAR=$(ls build/libs/SigTermClient-*.jar 2>/dev/null | grep -v sources | grep -v dev | head -1)
-          echo "JAR: $JAR"
           if [ -n "$JAR" ]; then
             gh release delete v1.0.0 --yes 2>/dev/null || true
             gh release create v1.0.0 "$JAR" --title 'SigTerm Client v1.0.0' \
-              --notes 'MC 1.21.11 utility client. RIGHT SHIFT to open GUI (rebindable).'
+              --notes 'MC 1.21.11 utility client'
           fi
