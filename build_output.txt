@@ -6,31 +6,21 @@ Fabric Loom: 1.14.10
 Cannot remap modifiers because it does not exists in any of the targets [] or their parents.
 
 > Task :compileJava
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:34: error: method does not override or implement a method from a supertype
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:72: error: method does not override or implement a method from a supertype
     @Override
     ^
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:69: error: method render in class Screen cannot be applied to given types;
-        super.render(g, delta);
-             ^
-  required: GuiGraphics,int,int,float
-  found:    GuiGraphics,float
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:94: error: method mouseClicked in interface ContainerEventHandler cannot be applied to given types;
+        return super.mouseClicked(mx, my, btn);
+                    ^
+  required: MouseButtonEvent,boolean
+  found:    double,double,int
   reason: actual and formal argument lists differ in length
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/ModuleManager.java:39: error: cannot find symbol
-        try { window = mc.getWindow().getScreenId(); } catch (Throwable t) {
-                                     ^
-  symbol:   method getScreenId()
-  location: class Window
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/ModuleManager.java:40: error: cannot find symbol
-            try { window = mc.getWindow().getHandle(); } catch (Throwable t2) {
-                                         ^
-  symbol:   method getHandle()
-  location: class Window
 Note: /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/SigTermClient.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-4 errors
+2 errors
 
 > Task :compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1777203163279.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1777203262988.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/SigTermClient/SigTermClient/build/reports/problems/problems-report.html
 
@@ -40,27 +30,17 @@ FAILURE: Build failed with an exception.
 Execution failed for task ':compileJava'.
 > Compilation failed; see the compiler output below.
   Note: /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/SigTermClient.java uses or overrides a deprecated API.
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:69: error: method render in class Screen cannot be applied to given types;
-          super.render(g, delta);
-               ^
-    required: GuiGraphics,int,int,float
-    found:    GuiGraphics,float
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:94: error: method mouseClicked in interface ContainerEventHandler cannot be applied to given types;
+          return super.mouseClicked(mx, my, btn);
+                      ^
+    required: MouseButtonEvent,boolean
+    found:    double,double,int
     reason: actual and formal argument lists differ in length
   Note: Recompile with -Xlint:deprecation for details.
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:34: error: method does not override or implement a method from a supertype
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:72: error: method does not override or implement a method from a supertype
       @Override
       ^
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/ModuleManager.java:39: error: cannot find symbol
-          try { window = mc.getWindow().getScreenId(); } catch (Throwable t) {
-                                       ^
-    symbol:   method getScreenId()
-    location: class Window
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/ModuleManager.java:40: error: cannot find symbol
-              try { window = mc.getWindow().getHandle(); } catch (Throwable t2) {
-                                           ^
-    symbol:   method getHandle()
-    location: class Window
-  4 errors
+  2 errors
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
@@ -72,5 +52,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 18s
+BUILD FAILED in 13s
 1 actionable task: 1 executed
