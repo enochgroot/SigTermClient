@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "sigtermclient",
+  "version": "1.0.0",
+  "name": "SigTerm Client",
+  "description": "Utility client for MC 1.21.11",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.sigterm.SigTermClient"
+    ]
+  },
+  "mixins": [
+    "sigtermclient.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": ">=1.21"
+  }
+}
