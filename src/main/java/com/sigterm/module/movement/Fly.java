@@ -18,27 +18,35 @@ public class Fly extends Module {
     public void onTick() {
         if (mc().player == null) return;
         double spd = speed.value * 0.25;
-        Vec3 vel = mc().player.getDeltaMovement();
-        double y = 0;
-        if (mc().options.keyJump.isDown()) y = spd;
-        else if (mc().options.keyShift.isDown()) y = -spd;
 
-        // Horizontal speed boost
-        double mx = vel.x, mz = vel.z;
-        double hLen = Math.sqrt(mx * mx + mz * mz);
-        if (hLen > 0.01) {
-            double mult = spd / hLen;
-            mx = mx * Math.min(mult, speed.value);
-            mz = mz * Math.min(mult, speed.value);
-        }
+        // Calculate movement from WASD input relative to look direction
+        float yaw = (float) Math.toRadians(mc().player.getYRot());
+        double forwardX = -Math.sin(yaw);
+        double forwardZ = Math.cos(yaw);
+        double strafeX = Math.cos(yaw);
+        double strafeZ = Math.sin(yaw);
 
-        mc().player.setDeltaMovement(mx, y, mz);
+        double mx = 0, mz = 0;
+        if (mc().options.keyUp.isDown())    { mx += forwardX; mz += forwardZ; }
+        if (mc().options.keyDown.isDown())   { mx -= forwardX; mz -= forwardZ; }
+        if (mc().options.keyLeft.isDown())   { mx += strafeX;  mz += strafeZ; }
+        if (mc().options.keyRight.isDown())  { mx -= strafeX;  mz -= strafeZ; }
+
+        // Normalize and apply speed
+        double len = Math.sqrt(mx * mx + mz * mz);
+        if (len > 0) { mx = mx / len * spd; mz = mz / len * spd; }
+
+        double my = 0;
+        if (mc().options.keyJump.isDown()) my = spd;
+        else if (mc().options.keyShift.isDown()) my = -spd;
+
+        mc().player.setDeltaMovement(mx, my, mz);
         mc().player.fallDistance = 0;
     }
 
     @Override
     public void onDisable() {
         if (mc().player != null)
-            mc().player.setDeltaMovement(mc().player.getDeltaMovement().multiply(1, 0, 1));
+            mc().player.setDeltaMovement(Vec3.ZERO);
     }
 }
