@@ -2,25 +2,24 @@ package com.sigterm.module.movement;
 
 import com.sigterm.module.Category;
 import com.sigterm.module.Module;
+import com.sigterm.module.Setting;
 import net.minecraft.world.phys.Vec3;
 import org.lwjgl.glfw.GLFW;
 
 public class Speed extends Module {
-    private static final double SPEED_MULT = 1.6;
+    private final Setting multiplier;
 
     public Speed() {
         super("Speed", "Move faster on ground", Category.MOVEMENT, GLFW.GLFW_KEY_V);
+        multiplier = addSetting("Speed", 1.6, 1.1, 5.0, 0.1, "x");
     }
 
     @Override
     public void onTick() {
-        if (mc().player == null) return;
-        if (!mc().player.onGround()) return;
+        if (mc().player == null || !mc().player.onGround()) return;
         Vec3 vel = mc().player.getDeltaMovement();
-        double motionX = vel.x;
-        double motionZ = vel.z;
-        if (motionX != 0 || motionZ != 0) {
-            mc().player.setDeltaMovement(motionX * SPEED_MULT, vel.y, motionZ * SPEED_MULT);
+        if (vel.x != 0 || vel.z != 0) {
+            mc().player.setDeltaMovement(vel.x * multiplier.value, vel.y, vel.z * multiplier.value);
         }
     }
 }
