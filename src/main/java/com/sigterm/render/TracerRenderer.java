@@ -1,5 +1,6 @@
 package com.sigterm.render;
 
+import com.mojang.blaze3d.vertex.*;
 import com.sigterm.module.Module;
 import com.sigterm.module.ModuleManager;
 import com.sigterm.module.render.Tracers;
@@ -32,6 +33,29 @@ public class TracerRenderer {
         int screenH = mc.getWindow().getGuiScaledHeight();
         int cx = screenW / 2, cy = screenH / 2;
 
+        double fov = mc.options.fov().get();
+        double scale = screenH / (2.0 * Math.tan(Math.toRadians(fov / 2.0)));
+
+        float yaw = (float) Math.toRadians(mc.player.getYRot());
+        float pitch = (float) Math.toRadians(mc.player.getXRot());
+        
+        // Pre-compute camera basis vectors (only once per frame)
+        double fx = -Math.sin(yaw)*Math.cos(pitch);
+        double fy = -Math.sin(pitch);
+        double fz = Math.cos(yaw)*Math.cos(pitch);
+        double rx = Math.cos(yaw);
+        double rz = Math.sin(yaw);
+        double ux = -Math.sin(yaw)*(-Math.sin(pitch));
+        double uy = Math.cos(pitch);
+        double uz = Math.cos(yaw)*(-Math.sin(pitch));
+
+        Vec3 pPos = mc.player.getEyePosition(partialTick);
+
+        // Use Tesselator for batched line rendering — MUCH faster than per-pixel fills
+        Tesselator tess = Tesselator.getInstance();
+        BufferBuilder buffer = tess.begin(VertexFormat.Mode.DEBUG_LINES, 
+            DefaultVertexFormat.POSITION_COLOR);
+
         for (Entity entity : mc.level.entitiesForRendering()) {
             if (entity == mc.player || !entity.isAlive()) continue;
             double dist = entity.distanceTo(mc.player);
@@ -45,41 +69,26 @@ public class TracerRenderer {
             if (!draw) continue;
 
             Vec3 ePos = entity.getPosition(partialTick).add(0, entity.getBbHeight() / 2, 0);
-            Vec3 pPos = mc.player.getEyePosition(partialTick);
             Vec3 diff = ePos.subtract(pPos);
-
-            float yaw = (float) Math.toRadians(mc.player.getYRot());
-            float pitch = (float) Math.toRadians(mc.player.getXRot());
-            double fx = -Math.sin(yaw)*Math.cos(pitch), fy = -Math.sin(pitch), fz = Math.cos(yaw)*Math.cos(pitch);
-            double rx = Math.cos(yaw), rz = Math.sin(yaw);
-            double ux = -Math.sin(yaw)*(-Math.sin(pitch)), uy = Math.cos(pitch), uz = Math.cos(yaw)*(-Math.sin(pitch));
 
             double dot = diff.x*fx + diff.y*fy + diff.z*fz;
             if (dot <= 0.1) continue;
 
             double sx = (diff.x*rx + diff.z*rz) / dot;
             double sy = -(diff.x*ux + diff.y*uy + diff.z*uz) / dot;
-            double fov = mc.options.fov().get();
-            double scale = screenH / (2.0 * Math.tan(Math.toRadians(fov / 2.0)));
 
             int ex = Math.max(0, Math.min(screenW, cx + (int)(sx * scale)));
             int ey = Math.max(0, Math.min(screenH, cy + (int)(sy * scale)));
 
             int alpha = Math.max(40, Math.min(255, (int)(255 * (1.0 - dist / range))));
-            int color = (alpha << 24) | (r << 16) | (g << 8) | b;
-            drawLine(graphics, cx, cy, ex, ey, color);
-        }
-    }
+            float ar = r / 255f, ag = g / 255f, ab = b / 255f, aa = alpha / 255f;
 
-    private static void drawLine(GuiGraphics g, int x1, int y1, int x2, int y2, int color) {
-        int dx = Math.abs(x2-x1), dy = Math.abs(y2-y1);
-        int sx = x1<x2?1:-1, sy = y1<y2?1:-1, err = dx-dy;
-        for (int i = 0; i < 2000; i++) {
-            g.fill(x1, y1, x1+1, y1+1, color);
-            if (x1==x2 && y1==y2) break;
-            int e2 = 2*err;
-            if (e2 > -dy) { err -= dy; x1 += sx; }
-            if (e2 < dx) { err += dx; y1 += sy; }
+            // Add line to batch buffer (single vertex call per entity)
+            buffer.addVertex(cx, cy, 0, ar, ag, ab, aa);
+            buffer.addVertex(ex, ey, 0, ar, ag, ab, aa);
         }
+
+        // Submit all lines in one draw call
+        tess.end();
     }
 }

@@ -5,6 +5,8 @@ import com.sigterm.module.Module;
 import org.lwjgl.glfw.GLFW;
 
 public class NoFall extends Module {
+    private boolean wasAirborne = false;
+
     public NoFall() {
         super("NoFall", "Prevents fall damage", Category.MOVEMENT, GLFW.GLFW_KEY_N);
     }
@@ -12,17 +14,23 @@ public class NoFall extends Module {
     @Override
     public void onTick() {
         if (mc().player == null) return;
-        // Simply zero out fall distance every tick
-        // The server calculates fall damage from its own tracking,
-        // but the client won't play damage animation or send hurt packets
-        mc().player.fallDistance = 0;
-        // Also set onGround to prevent the fall damage calculation
-        // This is what most clients do — simple and effective
-        mc().player.setOnGround(true);
+
+        boolean onGround = mc().player.onGround();
+        
+        if (!onGround) {
+            wasAirborne = true;
+            return;
+        }
+
+        // Only zero fall distance when landing (was airborne, now on ground)
+        if (wasAirborne) {
+            mc().player.fallDistance = 0;
+            wasAirborne = false;
+        }
     }
 
     @Override
     public void onDisable() {
-        // Don't leave the player stuck in a fake onGround state
+        wasAirborne = false;
     }
 }

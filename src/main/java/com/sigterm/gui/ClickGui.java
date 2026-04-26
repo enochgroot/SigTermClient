@@ -5,6 +5,8 @@ import com.sigterm.module.Category;
 import com.sigterm.module.Module;
 import com.sigterm.module.ModuleManager;
 import com.sigterm.module.Setting;
+import com.sigterm.module.render.BlockESP;
+import com.sigterm.module.render.MobESP;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
@@ -108,6 +110,9 @@ public class ClickGui extends Screen {
     }
 
     private void drawPanel(GuiGraphics g, Category cat, int mx, int my) {
+        // Skip Favorites if empty
+        if (cat == Category.FAVORITES && ModuleManager.INSTANCE.getByCategory(cat).isEmpty()) return;
+
         int[] xy = panelPos.get(cat);
         boolean col = collapsed.getOrDefault(cat, false);
         int totalH = panelHeight(cat);
@@ -127,16 +132,26 @@ public class ClickGui extends Screen {
             boolean hover = mx>=x+2 && mx<x+PW-2 && my>=cy && my<cy+MH-1;
             boolean on = m.isEnabled(), binding = (listeningModule==m);
             boolean exp = expanded.contains(m.name) && !m.getSettings().isEmpty();
+            
+            // Star icon for favorites (show in non-favorites panels)
+            boolean isFav = ModuleManager.INSTANCE.getFavorites().contains(m.name);
+            
             g.fill(x+2, cy, x+PW-2, cy+MH-1, binding?0xFF2A1A3A:(on?(hover?0xFF1A3A2A:0xFF0F2A1A):(hover?0xFF1E1E3A:0xFF141428)));
             if (on) g.fill(x+2, cy, x+4, cy+MH-1, 0xFF00DD66);
             if (!m.getSettings().isEmpty()) g.drawString(font, Component.literal(exp?"\u25bc":"\u25b6"), x+6, cy+3, 0xFF555577);
             g.drawString(font, Component.literal(m.name), x+(m.getSettings().isEmpty()?7:16), cy+3,
                 binding?0xFFFFFF44:(on?0xFF44FF88:(hover?0xFFDDDDEE:0xFF777799)));
+            
+            // Show star if favorited (in non-favorites panels) or in favorites panel
+            if (cat != Category.FAVORITES && isFav) {
+                g.drawString(font, Component.literal("\u2605"), x+PW-30, cy+3, 0xFFFFDD00);
+            }
+            
             String kl = binding?"...":keyName(m.getKeyBind());
             int kw = font.width(kl)+6;
             g.fill(x+PW-kw-4, cy+1, x+PW-3, cy+MH-2, binding?0xFF7744FF:0x44FFFFFF);
             g.drawString(font, Component.literal(kl), x+PW-kw-1, cy+3, binding?0xFFFFFF44:0xFF888899);
-            if (hover && !binding) { tooltip = m.description; tooltipX = mx; tooltipY = my; }
+            if (hover && !binding) { tooltip = m.description + (cat != Category.FAVORITES ? " | RClick=Favorite" : " | RClick=Unfav"); tooltipX = mx; tooltipY = my; }
             cy += MH;
             if (exp) {
                 for (Setting s : m.getSettings()) {
@@ -145,7 +160,6 @@ public class ClickGui extends Screen {
                     g.drawString(font, Component.literal("  "+s.name), x+8, cy+2, 0xFF8888AA);
                     String val = "< " + s.display() + " >";
                     int vw = font.width(val);
-                    // Left half = decrement, right half = increment
                     int midX = x + PW/2;
                     boolean onLeft = mx < midX;
                     int valCol = sHover ? (onLeft ? 0xFFFF8888 : 0xFF88FF88) : 0xFFAAAACC;
@@ -175,6 +189,8 @@ public class ClickGui extends Screen {
         if (mx>=gbx && mx<gbx+gbw && my>=2 && my<16) { listeningForGuiKey = true; return true; }
 
         for (Category cat : Category.values()) {
+            if (cat == Category.FAVORITES && ModuleManager.INSTANCE.getByCategory(cat).isEmpty()) continue;
+            
             int[] xy = panelPos.get(cat);
             boolean col = collapsed.getOrDefault(cat, false);
             if (mx>=xy[0] && mx<xy[0]+PW && my>=xy[1] && my<xy[1]+HH) {
@@ -187,12 +203,11 @@ public class ClickGui extends Screen {
             for (Module m : ModuleManager.INSTANCE.getByCategory(cat)) {
                 boolean exp = expanded.contains(m.name) && !m.getSettings().isEmpty();
 
-                // Check SETTINGS FIRST (they're below module row)
+                // Check SETTINGS FIRST
                 if (exp) {
                     int settingsStart = cy + MH;
                     for (Setting s : m.getSettings()) {
                         if (mx>=xy[0]+4 && mx<xy[0]+PW-4 && my>=settingsStart && my<settingsStart+SH) {
-                            // Left half of row = decrement, right half = increment
                             int midX = xy[0] + PW / 2;
                             if (mx < midX) s.decrement();
                             else s.increment();
@@ -208,9 +223,16 @@ public class ClickGui extends Screen {
                     if (btn == 0) { m.toggle(); SigTermConfig.save(); return true; }
                     if (btn == 1) { listeningModule = m; return true; }
                     if (btn == 2) {
-                        if (!m.getSettings().isEmpty()) {
-                            if (expanded.contains(m.name)) expanded.remove(m.name);
-                            else expanded.add(m.name);
+                        // Right-click on module row: toggle favorite
+                        if (cat != Category.FAVORITES) {
+                            ModuleManager.INSTANCE.toggleFavorite(m.name);
+                            SigTermConfig.save();
+                        } else {
+                            // In favorites panel, right-click to expand settings
+                            if (!m.getSettings().isEmpty()) {
+                                if (expanded.contains(m.name)) expanded.remove(m.name);
+                                else expanded.add(m.name);
+                            }
                         }
                         return true;
                     }

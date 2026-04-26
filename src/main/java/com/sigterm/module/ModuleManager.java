@@ -13,11 +13,18 @@ import java.util.*;
 public class ModuleManager {
     public static final ModuleManager INSTANCE = new ModuleManager();
     private final List<Module> modules = new ArrayList<>();
+    private final Set<String> favorites = new HashSet<>();
     private long cachedWindow = 0;
     private int guiKeyBind = GLFW.GLFW_KEY_RIGHT_SHIFT;
 
     public int getGuiKeyBind() { return guiKeyBind; }
     public void setGuiKeyBind(int k) { guiKeyBind = k; }
+
+    public Set<String> getFavorites() { return favorites; }
+    public void toggleFavorite(String name) {
+        if (favorites.contains(name)) favorites.remove(name);
+        else favorites.add(name);
+    }
 
     public void init() {
         // Combat
@@ -26,21 +33,37 @@ public class ModuleManager {
         register(new MaceDamage());
         register(new SpearDamage());
         register(new AutoCrystal());
+        register(new Reach());
+        register(new AimAssist());
+        register(new TriggerBot());
+        register(new Clutch());
+        
         // Movement
         register(new Speed());
         register(new Fly());
         register(new NoFall());
         register(new Sprint());
         register(new BHop());
+        register(new AirJump());
+        register(new BoatFly());
+        register(new FakeLag());
+        
         // Render
         register(new Fullbright());
         register(new Tracers());
+        register(new FreeCam());
+        register(new BlockESP());
+        register(new MobESP());
+        register(new Xray());
+        
         // Player
         register(new AutoRespawn());
         register(new FastPlace());
         register(new NoSlow());
         register(new AutoRefill());
         register(new AirPlace());
+        register(new KnockbackDelay());
+        
         SigTermConfig.load();
     }
 
@@ -95,9 +118,16 @@ public class ModuleManager {
     }
 
     public List<Module> getModules() { return Collections.unmodifiableList(modules); }
+    
     public List<Module> getByCategory(Category c) {
         List<Module> r = new ArrayList<>();
-        for (Module m : modules) if (m.category == c) r.add(m);
+        for (Module m : modules) {
+            if (c == Category.FAVORITES) {
+                if (favorites.contains(m.name)) r.add(m);
+            } else if (m.category == c) {
+                r.add(m);
+            }
+        }
         return r;
     }
 }

@@ -29,6 +29,11 @@ public class SigTermConfig {
                 }
             }
             props.setProperty("gui.keybind", String.valueOf(ModuleManager.INSTANCE.getGuiKeyBind()));
+            
+            // Save favorites
+            String favs = String.join(",", ModuleManager.INSTANCE.getFavorites());
+            props.setProperty("favorites", favs);
+            
             try (OutputStream os = Files.newOutputStream(CONFIG_FILE)) {
                 props.store(os, "SigTerm Client Config");
             }
@@ -55,6 +60,14 @@ public class SigTermConfig {
             }
             String gk = props.getProperty("gui.keybind");
             if (gk != null) ModuleManager.INSTANCE.setGuiKeyBind(Integer.parseInt(gk));
+            
+            // Load favorites
+            String favs = props.getProperty("favorites");
+            if (favs != null && !favs.isEmpty()) {
+                for (String name : favs.split(",")) {
+                    ModuleManager.INSTANCE.getFavorites().add(name.trim());
+                }
+            }
         } catch (Exception e) {
             System.err.println("[SigTerm] Config load failed: " + e);
         }

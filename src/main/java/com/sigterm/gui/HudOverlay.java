@@ -2,6 +2,8 @@ package com.sigterm.gui;
 
 import com.sigterm.module.Module;
 import com.sigterm.module.ModuleManager;
+import com.sigterm.module.render.BlockESP;
+import com.sigterm.module.render.MobESP;
 import com.sigterm.render.TracerRenderer;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
@@ -15,8 +17,26 @@ public class HudOverlay {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.options.hideGui) return;
 
-        try { TracerRenderer.render(g, dt.getGameTimeDeltaPartialTick(true)); } catch (Exception ignored) {}
+        float partialTick = dt.getGameTimeDeltaPartialTick(true);
+        
+        // Render tracers
+        try { TracerRenderer.render(g, partialTick); } catch (Exception ignored) {}
 
+        // Render BlockESP
+        for (Module m : ModuleManager.INSTANCE.getModules()) {
+            if (m instanceof BlockESP esp && esp.isEnabled()) {
+                try { esp.render(g, partialTick); } catch (Exception ignored) {}
+            }
+        }
+
+        // Render MobESP
+        for (Module m : ModuleManager.INSTANCE.getModules()) {
+            if (m instanceof MobESP esp && esp.isEnabled()) {
+                try { esp.render(g, partialTick); } catch (Exception ignored) {}
+            }
+        }
+
+        // Active modules list
         var font = mc.font;
         List<Module> active = ModuleManager.INSTANCE.getModules().stream()
             .filter(Module::isEnabled)
