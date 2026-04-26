@@ -12,8 +12,11 @@ public class Sprint extends Module {
     @Override
     public void onTick() {
         if (mc().player == null) return;
-        if (mc().player.input.forwardImpulse > 0 && !mc().player.isSprinting()
-            && !mc().player.isUsingItem() && mc().player.getFoodData().getFoodLevel() > 6) {
+        // Check if player is moving forward by checking the key state
+        boolean movingForward = mc().options.keyUp.isDown();
+        if (movingForward && !mc().player.isSprinting()
+            && !mc().player.isUsingItem()
+            && mc().player.getFoodData().getFoodLevel() > 6) {
             mc().player.setSprinting(true);
         }
     }
