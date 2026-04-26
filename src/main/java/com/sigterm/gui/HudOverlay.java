@@ -15,10 +15,8 @@ public class HudOverlay {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.options.hideGui) return;
 
-        // Tracers
-        try { TracerRenderer.render(g, dt); } catch (Exception ignored) {}
+        try { TracerRenderer.render(g, dt.getGameTimeDeltaPartialTick(true)); } catch (Exception ignored) {}
 
-        // Module list HUD
         var font = mc.font;
         List<Module> active = ModuleManager.INSTANCE.getModules().stream()
             .filter(Module::isEnabled)
