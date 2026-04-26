@@ -11,7 +11,7 @@ public class Speed extends Module {
 
     public Speed() {
         super("Speed", "Move faster on ground", Category.MOVEMENT, GLFW.GLFW_KEY_V);
-        multiplier = addSetting("Speed", 1.6, 1.1, 5.0, 0.1, "x");
+        multiplier = addSetting("Speed", 3.0, 1.1, 15.0, 0.5, "x");
     }
 
     @Override
