@@ -3,7 +3,6 @@ package com.sigterm.module.combat;
 import com.sigterm.module.Category;
 import com.sigterm.module.Module;
 import com.sigterm.module.Setting;
-import net.minecraft.network.protocol.game.ServerboundMovePlayerPacket;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Items;
@@ -11,21 +10,26 @@ import org.lwjgl.glfw.GLFW;
 import java.util.Comparator;
 
 public class MaceDamage extends Module {
-    private final Setting spoofHeight;
+    private final Setting fallDist;
     private final Setting range;
-    private int state = 0; // 0=ready, 1=spoofing up, 2=spoofing down, 3=attack
-    private int spoofTick = 0;
+    private final Setting mode; // 0 = spoof fallDistance, 1 = auto jump+attack
 
     public MaceDamage() {
-        super("MaceDamage", "Spoof fall distance for massive mace hits", Category.COMBAT, GLFW.GLFW_KEY_G);
-        spoofHeight = addSetting("Height", 10, 3, 100, 1, " blocks");
+        super("MaceDamage", "Boost mace damage via fall distance", Category.COMBAT, GLFW.GLFW_KEY_G);
+        fallDist = addSetting("FallDist", 10, 3, 100, 1, " blocks");
         range = addSetting("Range", 5.0, 3.0, 6.0, 0.5, "m");
+        mode = addSetting("Mode", 0, 0, 1, 1, ""); // 0=spoof, 1=jump
     }
+
+    private int jumpTicks = 0;
 
     @Override
     public void onTick() {
         if (mc().player == null || mc().level == null || mc().gameMode == null) return;
         if (!mc().player.getMainHandItem().is(Items.MACE)) return;
+
+        float cooldown = mc().player.getAttackStrengthScale(0f);
+        if (cooldown < 1.0f) return;
 
         double r = range.value;
         Entity target = mc().level.getEntities(mc().player,
@@ -34,45 +38,29 @@ public class MaceDamage extends Module {
                 && le.distanceTo(mc().player) <= r
         ).stream().min(Comparator.comparingDouble(e -> e.distanceTo(mc().player))).orElse(null);
 
-        if (target == null) { state = 0; spoofTick = 0; return; }
+        if (target == null) { jumpTicks = 0; return; }
 
-        float cooldown = mc().player.getAttackStrengthScale(0f);
-        if (cooldown < 1.0f) return;
-
-        double px = mc().player.getX();
-        double py = mc().player.getY();
-        double pz = mc().player.getZ();
-        double height = spoofHeight.value;
-
-        switch (state) {
-            case 0 -> {
-                // Send packets going UP (server thinks we jumped high)
-                int steps = (int) Math.min(height, 20);
-                for (int i = 1; i <= steps; i++) {
-                    mc().player.connection.send(new ServerboundMovePlayerPacket.Pos(
-                        px, py + (height * i / steps), pz, false, mc().player.horizontalCollision));
-                }
-                state = 1;
-                spoofTick = 0;
+        if (mode.value < 0.5) {
+            // Mode 0: Spoof — set fallDistance right before attacking
+            float savedFall = mc().player.fallDistance;
+            mc().player.fallDistance = (float) fallDist.value;
+            mc().player.swing(mc().player.getUsedItemHand());
+            mc().gameMode.attack(mc().player, target);
+            mc().player.resetAttackStrengthTicker();
+            mc().player.fallDistance = savedFall;
+        } else {
+            // Mode 1: Jump and attack on the way down
+            if (mc().player.onGround()) {
+                mc().player.jumpFromGround();
+                jumpTicks = 0;
             }
-            case 1 -> {
-                // Send packets coming DOWN (server calculates fall distance)
-                int steps = (int) Math.min(height, 20);
-                for (int i = steps; i >= 0; i--) {
-                    mc().player.connection.send(new ServerboundMovePlayerPacket.Pos(
-                        px, py + (height * i / steps), pz, false, mc().player.horizontalCollision));
-                }
-                // Final position = on ground
-                mc().player.connection.send(new ServerboundMovePlayerPacket.Pos(
-                    px, py, pz, true, mc().player.horizontalCollision));
-                state = 2;
-            }
-            case 2 -> {
-                // Attack with spoofed fall distance
+            jumpTicks++;
+            // Attack when falling and past the peak
+            if (jumpTicks > 6 && mc().player.getDeltaMovement().y < -0.1) {
                 mc().player.swing(mc().player.getUsedItemHand());
                 mc().gameMode.attack(mc().player, target);
                 mc().player.resetAttackStrengthTicker();
-                state = 0;
+                jumpTicks = 0;
             }
         }
     }
