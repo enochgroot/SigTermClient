@@ -6,11 +6,13 @@ import com.sigterm.module.render.*;
 import com.sigterm.module.player.*;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.glfw.GLFW;
+import java.lang.reflect.Method;
 import java.util.*;
 
 public class ModuleManager {
     public static final ModuleManager INSTANCE = new ModuleManager();
     private final List<Module> modules = new ArrayList<>();
+    private long cachedWindow = 0;
 
     public void init() {
         register(new KillAura());
@@ -30,28 +32,43 @@ public class ModuleManager {
 
     private void register(Module m) { modules.add(m); }
 
+    private long getWindowHandle() {
+        if (cachedWindow != 0) return cachedWindow;
+        try {
+            var window = Minecraft.getInstance().getWindow();
+            // Try all known method names for the GLFW window handle
+            for (String name : new String[]{"getWindow", "getHandle", "getScreenId", "window"}) {
+                try {
+                    Method m = window.getClass().getMethod(name);
+                    Object result = m.invoke(window);
+                    if (result instanceof Long l && l != 0) { cachedWindow = l; return l; }
+                } catch (NoSuchMethodException ignored) {}
+            }
+            // Try fields
+            for (var f : window.getClass().getDeclaredFields()) {
+                if (f.getType() == long.class) {
+                    f.setAccessible(true);
+                    long val = f.getLong(window);
+                    if (val != 0) { cachedWindow = val; return val; }
+                }
+            }
+        } catch (Exception ignored) {}
+        return 0;
+    }
+
     public void onTick() {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null) return;
-        if (mc.screen != null) return; // don't process keybinds while GUI open
+        if (mc.screen != null) return;
 
-        long window = 0;
-        try { window = mc.getWindow().getScreenId(); } catch (Throwable t) {
-            try { window = mc.getWindow().getHandle(); } catch (Throwable t2) {
-                try {
-                    // Fallback: use reflection
-                    var m = mc.getWindow().getClass().getMethod("getWindow");
-                    window = (long) m.invoke(mc.getWindow());
-                } catch (Throwable ignored) { return; }
-            }
-        }
-        if (window == 0) return;
-
-        for (Module m : modules) {
-            if (m.getKeyBind() != 0) {
-                boolean down = GLFW.glfwGetKey(window, m.getKeyBind()) == GLFW.GLFW_PRESS;
-                if (down && !m.wasKeyDown) m.toggle();
-                m.wasKeyDown = down;
+        long window = getWindowHandle();
+        if (window != 0) {
+            for (Module m : modules) {
+                if (m.getKeyBind() != 0) {
+                    boolean down = GLFW.glfwGetKey(window, m.getKeyBind()) == GLFW.GLFW_PRESS;
+                    if (down && !m.wasKeyDown) m.toggle();
+                    m.wasKeyDown = down;
+                }
             }
         }
         for (Module m : modules) {
