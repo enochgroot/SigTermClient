@@ -10,21 +10,27 @@ import java.util.Comparator;
 
 public class KillAura extends Module {
     private final Setting range;
-    private final Setting tickDelaySetting;
-    private int tickDelay = 0;
+    private final Setting onlyCrit;
 
     public KillAura() {
-        super("KillAura", "Attacks nearby entities", Category.COMBAT, GLFW.GLFW_KEY_R);
+        super("KillAura", "Attacks at optimal crit timing", Category.COMBAT, GLFW.GLFW_KEY_R);
         range = addSetting("Range", 4.5, 2.0, 6.0, 0.5, "m");
-        tickDelaySetting = addSetting("Delay", 1, 0, 10, 1, " ticks");
+        onlyCrit = addSetting("CritOnly", 1, 0, 1, 1, "");
     }
 
     @Override
     public void onTick() {
         if (mc().player == null || mc().level == null) return;
-        if (tickDelay > 0) { tickDelay--; return; }
+
+        // Wait for FULL cooldown (optimal damage)
         float cooldown = mc().player.getAttackStrengthScale(0f);
-        if (cooldown < 0.9f) return;
+        if (cooldown < 1.0f) return;
+
+        // Crit only: must be falling (deltaY < 0) and not on ground
+        if (onlyCrit.value >= 1) {
+            if (mc().player.onGround()) return;
+            if (mc().player.getDeltaMovement().y >= 0) return;
+        }
 
         double r = range.value;
         Entity closest = mc().level.getEntities(mc().player,
@@ -37,7 +43,6 @@ public class KillAura extends Module {
             mc().player.swing(mc().player.getUsedItemHand());
             mc().gameMode.attack(mc().player, closest);
             mc().player.resetAttackStrengthTicker();
-            tickDelay = (int) tickDelaySetting.value;
         }
     }
 }
