@@ -33,7 +33,20 @@ public class ModuleManager {
     public void onTick() {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null) return;
-        long window = mc.getWindow().getWindow();
+        if (mc.screen != null) return; // don't process keybinds while GUI open
+
+        long window = 0;
+        try { window = mc.getWindow().getScreenId(); } catch (Throwable t) {
+            try { window = mc.getWindow().getHandle(); } catch (Throwable t2) {
+                try {
+                    // Fallback: use reflection
+                    var m = mc.getWindow().getClass().getMethod("getWindow");
+                    window = (long) m.invoke(mc.getWindow());
+                } catch (Throwable ignored) { return; }
+            }
+        }
+        if (window == 0) return;
+
         for (Module m : modules) {
             if (m.getKeyBind() != 0) {
                 boolean down = GLFW.glfwGetKey(window, m.getKeyBind()) == GLFW.GLFW_PRESS;
