@@ -94,7 +94,7 @@ public class ClickGui extends Screen {
         int guiBtnW = font.width(guiKeyLabel) + 8;
         int guiBtnX = width / 2 - guiBtnW / 2;
         boolean guiBtnHover = mx >= guiBtnX && mx < guiBtnX + guiBtnW && my >= 2 && my < 16;
-        g.fill(guiBtnX, 2, guiBtnX + guiBtnW, 16, guiBtnHover ? 0xFF5533AA : 0xFF3322777);
+        g.fill(guiBtnX, 2, guiBtnX + guiBtnW, 16, guiBtnHover ? 0xFF5533AA : 0xFF332277);
         g.drawString(font, Component.literal(guiKeyLabel), guiBtnX + 4, 5,
             listeningForGuiKey ? 0xFFFFFF44 : 0xFFFFFFFF);
 
