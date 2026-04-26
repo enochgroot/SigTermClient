@@ -40,6 +40,7 @@ public class ModuleManager {
         register(new FastPlace());
         register(new NoSlow());
         register(new AutoRefill());
+        register(new AirPlace());
         SigTermConfig.load();
     }
 
