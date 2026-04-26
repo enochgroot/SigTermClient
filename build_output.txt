@@ -6,20 +6,17 @@ Fabric Loom: 1.14.10
 Cannot remap modifiers because it does not exists in any of the targets [] or their parents.
 
 > Task :compileJava
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:11: error: cannot find symbol
-import net.minecraft.client.renderer.RenderType;
-                                    ^
-  symbol:   class RenderType
-  location: package net.minecraft.client.renderer
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/player/AutoRefill.java:33: error: selected has private access in Inventory
-        int heldSlot = mc().player.getInventory().selected + 36; // hotbar slots are 36-44 in container
-                                                 ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/player/AutoRefill.java:32: error: cannot find symbol
+        int selectedSlot = mc().player.getInventory().getSelected();
+                                                     ^
+  symbol:   method getSelected()
+  location: class Inventory
 Note: /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/SigTermClient.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-2 errors
+1 error
 
 > Task :compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1777206897441.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1777207004126.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/SigTermClient/SigTermClient/build/reports/problems/problems-report.html
 
@@ -30,15 +27,12 @@ Execution failed for task ':compileJava'.
 > Compilation failed; see the compiler output below.
   Note: /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/SigTermClient.java uses or overrides a deprecated API.
   Note: Recompile with -Xlint:deprecation for details.
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:11: error: cannot find symbol
-  import net.minecraft.client.renderer.RenderType;
-                                      ^
-    symbol:   class RenderType
-    location: package net.minecraft.client.renderer
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/player/AutoRefill.java:33: error: selected has private access in Inventory
-          int heldSlot = mc().player.getInventory().selected + 36; // hotbar slots are 36-44 in container
-                                                   ^
-  2 errors
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/player/AutoRefill.java:32: error: cannot find symbol
+          int selectedSlot = mc().player.getInventory().getSelected();
+                                                       ^
+    symbol:   method getSelected()
+    location: class Inventory
+  1 error
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
