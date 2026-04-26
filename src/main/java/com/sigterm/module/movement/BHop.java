@@ -3,7 +3,6 @@ package com.sigterm.module.movement;
 import com.sigterm.module.Category;
 import com.sigterm.module.Module;
 import com.sigterm.module.Setting;
-import net.minecraft.world.phys.Vec3;
 
 public class BHop extends Module {
     private final Setting hopHeight;
@@ -18,29 +17,25 @@ public class BHop extends Module {
     @Override
     public void onTick() {
         if (mc().player == null) return;
+        if (mc().player.isShiftKeyDown()) return;
         boolean moving = mc().options.keyUp.isDown() || mc().options.keyDown.isDown()
             || mc().options.keyLeft.isDown() || mc().options.keyRight.isDown();
         if (!moving) return;
 
         if (mc().player.onGround()) {
-            // Calculate direction from WASD + look
             float yaw = (float) Math.toRadians(mc().player.getYRot());
             double fx = -Math.sin(yaw), fz = Math.cos(yaw);
             double sx = Math.cos(yaw), sz = Math.sin(yaw);
-
             double mx = 0, mz = 0;
             if (mc().options.keyUp.isDown())    { mx += fx; mz += fz; }
             if (mc().options.keyDown.isDown())   { mx -= fx; mz -= fz; }
             if (mc().options.keyLeft.isDown())   { mx += sx; mz += sz; }
             if (mc().options.keyRight.isDown())  { mx -= sx; mz -= sz; }
-
-            double len = Math.sqrt(mx * mx + mz * mz);
+            double len = Math.sqrt(mx*mx + mz*mz);
             if (len > 0) {
                 double spd = hopSpeed.value * 0.2;
-                mx = mx / len * spd;
-                mz = mz / len * spd;
+                mx = mx/len*spd; mz = mz/len*spd;
             }
-
             mc().player.setDeltaMovement(mx, hopHeight.value, mz);
         }
     }
