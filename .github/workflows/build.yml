@@ -10,7 +10,18 @@ jobs:
       - uses: actions/setup-java@v4
         with: {java-version: '21', distribution: 'temurin'}
       - uses: gradle/actions/setup-gradle@v4
-      - run: chmod +x gradlew && ./gradlew --no-build-cache build
+      - name: Build
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-build-cache build 2>&1 | tee build_output.txt || true
+      - name: Push log
+        if: always()
+        run: |
+          git config user.email 'ci@github.com'
+          git config user.name 'CI'
+          git add -f build_output.txt
+          git commit -m 'ci: log' || true
+          git push || true
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -18,6 +29,5 @@ jobs:
           JAR=$(ls build/libs/SigTermClient-*.jar 2>/dev/null | grep -v sources | grep -v dev | head -1)
           if [ -n "$JAR" ]; then
             gh release delete v1.0.0 --yes 2>/dev/null || true
-            gh release create v1.0.0 "$JAR" --title 'SigTerm Client v1.0.0' \
-              --notes 'MC 1.21.11 utility client'
+            gh release create v1.0.0 "$JAR" --title 'SigTerm Client v1.0.0' --notes 'MC 1.21.11'
           fi
