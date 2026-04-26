@@ -2,8 +2,8 @@ package com.sigterm.config;
 
 import com.sigterm.module.Module;
 import com.sigterm.module.ModuleManager;
+import com.sigterm.module.Setting;
 import net.minecraft.client.Minecraft;
-
 import java.io.*;
 import java.nio.file.*;
 import java.util.Properties;
@@ -13,11 +13,8 @@ public class SigTermConfig {
     private static final Path CONFIG_FILE = CONFIG_DIR.resolve("sigtermclient.properties");
 
     private static Path getConfigDir() {
-        try {
-            return Minecraft.getInstance().gameDirectory.toPath().resolve("config");
-        } catch (Exception e) {
-            return Path.of("config");
-        }
+        try { return Minecraft.getInstance().gameDirectory.toPath().resolve("config"); }
+        catch (Exception e) { return Path.of("config"); }
     }
 
     public static void save() {
@@ -27,6 +24,9 @@ public class SigTermConfig {
             for (Module m : ModuleManager.INSTANCE.getModules()) {
                 props.setProperty("bind." + m.name, String.valueOf(m.getKeyBind()));
                 props.setProperty("enabled." + m.name, String.valueOf(m.isEnabled()));
+                for (Setting s : m.getSettings()) {
+                    props.setProperty("setting." + m.name + "." + s.name, String.valueOf(s.value));
+                }
             }
             props.setProperty("gui.keybind", String.valueOf(ModuleManager.INSTANCE.getGuiKeyBind()));
             try (OutputStream os = Files.newOutputStream(CONFIG_FILE)) {
@@ -41,24 +41,20 @@ public class SigTermConfig {
         if (!Files.exists(CONFIG_FILE)) return;
         try {
             Properties props = new Properties();
-            try (InputStream is = Files.newInputStream(CONFIG_FILE)) {
-                props.load(is);
-            }
+            try (InputStream is = Files.newInputStream(CONFIG_FILE)) { props.load(is); }
             for (Module m : ModuleManager.INSTANCE.getModules()) {
-                String bindKey = "bind." + m.name;
-                if (props.containsKey(bindKey)) {
-                    m.setKeyBind(Integer.parseInt(props.getProperty(bindKey)));
-                }
-                String enabledKey = "enabled." + m.name;
-                if (props.containsKey(enabledKey)) {
-                    boolean shouldBeEnabled = Boolean.parseBoolean(props.getProperty(enabledKey));
-                    if (shouldBeEnabled && !m.isEnabled()) m.toggle();
+                String bk = "bind." + m.name;
+                if (props.containsKey(bk)) m.setKeyBind(Integer.parseInt(props.getProperty(bk)));
+                String ek = "enabled." + m.name;
+                if (props.containsKey(ek) && Boolean.parseBoolean(props.getProperty(ek)) && !m.isEnabled())
+                    m.toggle();
+                for (Setting s : m.getSettings()) {
+                    String sk = "setting." + m.name + "." + s.name;
+                    if (props.containsKey(sk)) s.value = Double.parseDouble(props.getProperty(sk));
                 }
             }
-            String guiKey = props.getProperty("gui.keybind");
-            if (guiKey != null) {
-                ModuleManager.INSTANCE.setGuiKeyBind(Integer.parseInt(guiKey));
-            }
+            String gk = props.getProperty("gui.keybind");
+            if (gk != null) ModuleManager.INSTANCE.setGuiKeyBind(Integer.parseInt(gk));
         } catch (Exception e) {
             System.err.println("[SigTerm] Config load failed: " + e);
         }
