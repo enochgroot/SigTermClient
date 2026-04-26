@@ -20,19 +20,26 @@ public class ModuleManager {
     public void setGuiKeyBind(int k) { guiKeyBind = k; }
 
     public void init() {
+        // Combat
         register(new KillAura());
         register(new AutoTotem());
         register(new MaceDamage());
         register(new SpearDamage());
         register(new AutoCrystal());
+        // Movement
         register(new Speed());
         register(new Fly());
         register(new NoFall());
         register(new Sprint());
+        register(new BHop());
+        // Render
         register(new Fullbright());
+        register(new Tracers());
+        // Player
         register(new AutoRespawn());
         register(new FastPlace());
         register(new NoSlow());
+        register(new AutoRefill());
         SigTermConfig.load();
     }
 
@@ -65,20 +72,15 @@ public class ModuleManager {
     public void onTick() {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null) return;
-
         long window = getWindowHandle();
         if (window == 0) return;
 
-        // GUI keybind
         boolean guiDown = GLFW.glfwGetKey(window, guiKeyBind) == GLFW.GLFW_PRESS;
-        if (guiDown && !wasGuiKeyDown && mc.screen == null) {
+        if (guiDown && !wasGuiKeyDown && mc.screen == null)
             mc.setScreen(new com.sigterm.gui.ClickGui());
-        }
         wasGuiKeyDown = guiDown;
 
         if (mc.screen != null) return;
-
-        // Module keybinds
         for (Module m : modules) {
             if (m.getKeyBind() != 0) {
                 boolean down = GLFW.glfwGetKey(window, m.getKeyBind()) == GLFW.GLFW_PRESS;
@@ -87,9 +89,7 @@ public class ModuleManager {
             }
         }
         for (Module m : modules) {
-            if (m.isEnabled()) {
-                try { m.onTick(); } catch (Exception ignored) {}
-            }
+            if (m.isEnabled()) { try { m.onTick(); } catch (Exception ignored) {} }
         }
     }
 
