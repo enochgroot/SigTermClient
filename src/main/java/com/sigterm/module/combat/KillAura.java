@@ -10,26 +10,48 @@ import java.util.Comparator;
 
 public class KillAura extends Module {
     private final Setting range;
+    private final Setting weapon; // 0=auto, 1=sword, 2=axe, 3=mace, 4=fist
+    private final Setting delayTicks;
     private final Setting onlyCrit;
+    private int tickTimer = 0;
+
+    // Weapon attack speeds (ticks between hits for max damage):
+    // Sword: 12 ticks (1.6 attacks/sec)
+    // Axe: 20 ticks (1.0 attacks/sec)
+    // Mace: 12 ticks (1.6 attacks/sec)
+    // Fist: 5 ticks (4.0 attacks/sec)
+    private static final int[] WEAPON_DELAYS = {0, 12, 20, 12, 5};
+    // 0 = auto (use attack cooldown)
 
     public KillAura() {
-        super("KillAura", "Attacks at optimal crit timing", Category.COMBAT, GLFW.GLFW_KEY_R);
+        super("KillAura", "Attacks at optimal weapon timing", Category.COMBAT, GLFW.GLFW_KEY_R);
         range = addSetting("Range", 4.5, 2.0, 6.0, 0.5, "m");
-        onlyCrit = addSetting("CritOnly", 1, 0, 1, 1, "");
+        weapon = addSetting("Weapon", 0, 0, 4, 1, ""); // 0=auto 1=sword 2=axe 3=mace 4=fist
+        delayTicks = addSetting("Delay", 0, 0, 20, 1, " ticks");
+        onlyCrit = addSetting("CritOnly", 0, 0, 1, 1, "");
     }
 
     @Override
     public void onTick() {
         if (mc().player == null || mc().level == null) return;
+        tickTimer++;
 
-        // Wait for FULL cooldown (optimal damage)
-        float cooldown = mc().player.getAttackStrengthScale(0f);
-        if (cooldown < 1.0f) return;
+        int weaponType = (int) weapon.value;
+        int extraDelay = (int) delayTicks.value;
 
-        // Crit only: must be falling (deltaY < 0) and not on ground
+        if (weaponType == 0) {
+            // Auto mode: use MC's built-in attack cooldown
+            float cooldown = mc().player.getAttackStrengthScale(0f);
+            if (cooldown < 1.0f) return;
+        } else {
+            // Manual weapon timing
+            int requiredTicks = WEAPON_DELAYS[weaponType] + extraDelay;
+            if (tickTimer < requiredTicks) return;
+        }
+
+        // Crit check
         if (onlyCrit.value >= 1) {
-            if (mc().player.onGround()) return;
-            if (mc().player.getDeltaMovement().y >= 0) return;
+            if (mc().player.onGround() || mc().player.getDeltaMovement().y >= 0) return;
         }
 
         double r = range.value;
@@ -43,6 +65,10 @@ public class KillAura extends Module {
             mc().player.swing(mc().player.getUsedItemHand());
             mc().gameMode.attack(mc().player, closest);
             mc().player.resetAttackStrengthTicker();
+            tickTimer = 0;
         }
     }
+
+    @Override
+    public void onEnable() { tickTimer = 100; } // ready to attack immediately
 }
