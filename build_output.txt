@@ -6,21 +6,17 @@ Fabric Loom: 1.14.10
 Cannot remap modifiers because it does not exists in any of the targets [] or their parents.
 
 > Task :compileJava
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:72: error: method does not override or implement a method from a supertype
-    @Override
-    ^
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:94: error: method mouseClicked in interface ContainerEventHandler cannot be applied to given types;
-        return super.mouseClicked(mx, my, btn);
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:29: error: cannot find symbol
+                    mc().setScreen(new ClickGui());
                     ^
-  required: MouseButtonEvent,boolean
-  found:    double,double,int
-  reason: actual and formal argument lists differ in length
+  symbol:   method mc()
+  location: class ClickGui
 Note: /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/SigTermClient.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-2 errors
+1 error
 
 > Task :compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1777203262988.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1777203332909.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/SigTermClient/SigTermClient/build/reports/problems/problems-report.html
 
@@ -30,17 +26,13 @@ FAILURE: Build failed with an exception.
 Execution failed for task ':compileJava'.
 > Compilation failed; see the compiler output below.
   Note: /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/SigTermClient.java uses or overrides a deprecated API.
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:94: error: method mouseClicked in interface ContainerEventHandler cannot be applied to given types;
-          return super.mouseClicked(mx, my, btn);
-                      ^
-    required: MouseButtonEvent,boolean
-    found:    double,double,int
-    reason: actual and formal argument lists differ in length
   Note: Recompile with -Xlint:deprecation for details.
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:72: error: method does not override or implement a method from a supertype
-      @Override
-      ^
-  2 errors
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/gui/ClickGui.java:29: error: cannot find symbol
+                      mc().setScreen(new ClickGui());
+                      ^
+    symbol:   method mc()
+    location: class ClickGui
+  1 error
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
@@ -52,5 +44,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 13s
+BUILD FAILED in 19s
 1 actionable task: 1 executed
