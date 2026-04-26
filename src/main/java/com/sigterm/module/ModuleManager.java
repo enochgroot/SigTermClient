@@ -4,6 +4,7 @@ import com.sigterm.module.combat.*;
 import com.sigterm.module.movement.*;
 import com.sigterm.module.render.*;
 import com.sigterm.module.player.*;
+import com.sigterm.config.SigTermConfig;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.glfw.GLFW;
 import java.lang.reflect.Method;
@@ -13,6 +14,10 @@ public class ModuleManager {
     public static final ModuleManager INSTANCE = new ModuleManager();
     private final List<Module> modules = new ArrayList<>();
     private long cachedWindow = 0;
+    private int guiKeyBind = GLFW.GLFW_KEY_RIGHT_SHIFT;
+
+    public int getGuiKeyBind() { return guiKeyBind; }
+    public void setGuiKeyBind(int k) { guiKeyBind = k; }
 
     public void init() {
         register(new KillAura());
@@ -28,6 +33,7 @@ public class ModuleManager {
         register(new AutoRespawn());
         register(new FastPlace());
         register(new NoSlow());
+        SigTermConfig.load();
     }
 
     private void register(Module m) { modules.add(m); }
@@ -36,7 +42,6 @@ public class ModuleManager {
         if (cachedWindow != 0) return cachedWindow;
         try {
             var window = Minecraft.getInstance().getWindow();
-            // Try all known method names for the GLFW window handle
             for (String name : new String[]{"getWindow", "getHandle", "getScreenId", "window"}) {
                 try {
                     Method m = window.getClass().getMethod(name);
@@ -44,7 +49,6 @@ public class ModuleManager {
                     if (result instanceof Long l && l != 0) { cachedWindow = l; return l; }
                 } catch (NoSuchMethodException ignored) {}
             }
-            // Try fields
             for (var f : window.getClass().getDeclaredFields()) {
                 if (f.getType() == long.class) {
                     f.setAccessible(true);
@@ -56,19 +60,30 @@ public class ModuleManager {
         return 0;
     }
 
+    private boolean wasGuiKeyDown = false;
+
     public void onTick() {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null) return;
-        if (mc.screen != null) return;
 
         long window = getWindowHandle();
-        if (window != 0) {
-            for (Module m : modules) {
-                if (m.getKeyBind() != 0) {
-                    boolean down = GLFW.glfwGetKey(window, m.getKeyBind()) == GLFW.GLFW_PRESS;
-                    if (down && !m.wasKeyDown) m.toggle();
-                    m.wasKeyDown = down;
-                }
+        if (window == 0) return;
+
+        // GUI keybind
+        boolean guiDown = GLFW.glfwGetKey(window, guiKeyBind) == GLFW.GLFW_PRESS;
+        if (guiDown && !wasGuiKeyDown && mc.screen == null) {
+            mc.setScreen(new com.sigterm.gui.ClickGui());
+        }
+        wasGuiKeyDown = guiDown;
+
+        if (mc.screen != null) return;
+
+        // Module keybinds
+        for (Module m : modules) {
+            if (m.getKeyBind() != 0) {
+                boolean down = GLFW.glfwGetKey(window, m.getKeyBind()) == GLFW.GLFW_PRESS;
+                if (down && !m.wasKeyDown) m.toggle();
+                m.wasKeyDown = down;
             }
         }
         for (Module m : modules) {
