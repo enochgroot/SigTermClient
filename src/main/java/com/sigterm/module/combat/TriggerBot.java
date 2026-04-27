@@ -25,8 +25,8 @@ public class TriggerBot extends Module {
         tickTimer++;
         if (tickTimer < (int) delayTicks.value) return;
 
-        // Use crosshairPickEntity to check if crosshair is on an entity
-        Entity target = mc().crosshairPickEntity(6.0, 1.0f, false, false);
+        // crosshairPickEntity is a FIELD in MC 1.21.11, not a method
+        Entity target = mc().crosshairPickEntity;
         
         if (target instanceof LivingEntity living && living.isAlive() 
             && target != mc().player && target.distanceTo(mc().player) <= range.value) {

@@ -79,10 +79,11 @@ public class TracerRenderer {
             int ey = Math.max(0, Math.min(screenH, cy + (int)(sy * scale)));
 
             int alpha = Math.max(40, Math.min(255, (int)(255 * (1.0 - dist / range))));
-            float ar = r / 255f, ag = g / 255f, ab = b / 255f, aa = alpha / 255f;
 
-            buffer.vertex(cx, cy, 0).color(ar, ag, ab, aa).next();
-            buffer.vertex(ex, ey, 0).color(ar, ag, ab, aa).next();
+            buffer.addVertex(cx, cy, 0).setColor(r, g, b, alpha);
+            buffer.endLastVertex();
+            buffer.addVertex(ex, ey, 0).setColor(r, g, b, alpha);
+            buffer.endLastVertex();
         }
 
         BufferRenderer.drawWithShader(buffer.end());
