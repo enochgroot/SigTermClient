@@ -6,15 +6,826 @@ Fabric Loom: 1.14.10
 Cannot remap modifiers because it does not exists in any of the targets [] or their parents.
 
 > Task :compileJava
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/MaceDamage.java:45: error: incompatible types: possible lossy conversion from double to float
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/Xray.java:6: error: cannot find symbol
+import net.minecraft.client.renderer.BlockRenderManager;
+                                    ^
+  symbol:   class BlockRenderManager
+  location: package net.minecraft.client.renderer
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/Xray.java:8: error: cannot find symbol
+import net.minecraft.resources.ResourceLocation;
+                              ^
+  symbol:   class ResourceLocation
+  location: package net.minecraft.resources
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/movement/BoatFly.java:6: error: cannot find symbol
+import net.minecraft.world.entity.vehicle.BoatEntity;
+                                         ^
+  symbol:   class BoatEntity
+  location: package net.minecraft.world.entity.vehicle
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:87: error: no suitable method found for addVertex(int,int,int,float,float,float,float)
+            buffer.addVertex(cx, cy, 0, ar, ag, ab, aa);
+                  ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:88: error: no suitable method found for addVertex(int,int,int,float,float,float,float)
+            buffer.addVertex(ex, ey, 0, ar, ag, ab, aa);
+                  ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:92: error: cannot find symbol
+        tess.end();
+            ^
+  symbol:   method end()
+  location: variable tess of type Tesselator
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:40: error: incompatible types: possible lossy conversion from double to int
+        for (int x = -range; x <= range; x++) {
+                     ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:41: error: incompatible types: possible lossy conversion from double to int
+            for (int y = -range; y <= range; y++) {
+                         ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:42: error: incompatible types: possible lossy conversion from double to int
+                for (int z = -range; z <= range; z++) {
+                             ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:68: error: cannot find symbol
+        tess.end();
+            ^
+  symbol:   method end()
+  location: variable tess of type Tesselator
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:73: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x, y, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:74: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x+1, y, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:75: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x+1, y, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:76: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x+1, y, z+1, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:77: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x+1, y, z+1, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:78: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x, y, z+1, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:79: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x, y, z+1, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:80: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x, y, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:82: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x, y+1, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:83: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x+1, y+1, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:84: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x+1, y+1, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:85: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x+1, y+1, z+1, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:86: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x+1, y+1, z+1, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:87: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x, y+1, z+1, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:88: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x, y+1, z+1, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:89: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x, y+1, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:91: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x, y, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:92: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x, y+1, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:93: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x+1, y, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:94: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x+1, y+1, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:95: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x+1, y, z+1, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:96: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x+1, y+1, z+1, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:97: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x, y, z+1, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:98: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+        buf.addVertex(x, y+1, z+1, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:63: error: cannot find symbol
+        tess.end();
+            ^
+  symbol:   method end()
+  location: variable tess of type Tesselator
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:69: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x, y, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:70: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x+w, y, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:71: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x+w, y, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:72: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x+w, y, z+d, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:73: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x+w, y, z+d, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:74: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x, y, z+d, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:75: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x, y, z+d, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:76: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x, y, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:78: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x, y+h, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:79: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x+w, y+h, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:80: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x+w, y+h, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:81: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x+w, y+h, z+d, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:82: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x+w, y+h, z+d, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:83: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x, y+h, z+d, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:84: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x, y+h, z+d, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:85: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x, y+h, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:87: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x, y, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:88: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x, y+h, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:89: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x+w, y, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:90: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x+w, y+h, z, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:91: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x+w, y, z+d, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:92: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x+w, y+h, z+d, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:93: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x, y, z+d, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:94: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+        buf.addVertex(x, y+h, z+d, r, g, b, 1);
+           ^
+    method VertexConsumer.addVertex(Vector3fc) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+    method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+      (actual and formal argument lists differ in length)
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/AutoCrystal.java:34: error: players is not public in ClientLevel; cannot be accessed from outside package
+        Player target = mc().level.players.stream()
+                                  ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/Reach.java:43: error: bad operand type double for unary operator '!'
+        if (!onlyWhenAttacking.value >= 1) {
+            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/MaceDamage.java:50: error: incompatible types: possible lossy conversion from double to float
             float savedFall = mc().player.fallDistance;
                                          ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/Clutch.java:27: error: incompatible types: possible lossy conversion from float to int
+        int health = mc().player.getHealth();
+                                          ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/SpearDamage.java:59: error: incompatible types: net.minecraft.world.phys.Vec3 cannot be converted to com.sigterm.module.combat.SpearDamage.Vec3
+            Vec3 targetVel = living.getDeltaMovement();
+                                                    ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/TriggerBot.java:29: error: cannot find symbol
+        Entity target = mc().player.getTarget(6.0, 1.0f);
+                                   ^
+  symbol:   method getTarget(double,float)
+  location: variable player of type LocalPlayer
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/movement/BoatFly.java:22: error: cannot find symbol
+        if (!(mc().player.getVehicle() instanceof BoatEntity)) return;
+                                                  ^
+  symbol:   class BoatEntity
+  location: class BoatFly
 Note: /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/SigTermClient.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-1 error
+66 errors
 
 > Task :compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1777210434030.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1777320207540.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/SigTermClient/SigTermClient/build/reports/problems/problems-report.html
 
@@ -24,11 +835,822 @@ FAILURE: Build failed with an exception.
 Execution failed for task ':compileJava'.
 > Compilation failed; see the compiler output below.
   Note: /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/SigTermClient.java uses or overrides a deprecated API.
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:87: error: no suitable method found for addVertex(int,int,int,float,float,float,float)
+              buffer.addVertex(cx, cy, 0, ar, ag, ab, aa);
+                    ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:88: error: no suitable method found for addVertex(int,int,int,float,float,float,float)
+              buffer.addVertex(ex, ey, 0, ar, ag, ab, aa);
+                    ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:73: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x, y, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:74: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x+1, y, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:75: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x+1, y, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:76: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x+1, y, z+1, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:77: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x+1, y, z+1, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:78: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x, y, z+1, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:79: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x, y, z+1, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:80: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x, y, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:82: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x, y+1, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:83: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x+1, y+1, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:84: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x+1, y+1, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:85: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x+1, y+1, z+1, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:86: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x+1, y+1, z+1, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:87: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x, y+1, z+1, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:88: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x, y+1, z+1, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:89: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x, y+1, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:91: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x, y, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:92: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x, y+1, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:93: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x+1, y, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:94: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x+1, y+1, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:95: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x+1, y, z+1, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:96: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x+1, y+1, z+1, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:97: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x, y, z+1, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:98: error: no suitable method found for addVertex(int,int,int,float,float,float,int)
+          buf.addVertex(x, y+1, z+1, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:69: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x, y, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:70: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x+w, y, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:71: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x+w, y, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:72: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x+w, y, z+d, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:73: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x+w, y, z+d, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:74: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x, y, z+d, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:75: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x, y, z+d, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:76: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x, y, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:78: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x, y+h, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:79: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x+w, y+h, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:80: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x+w, y+h, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:81: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x+w, y+h, z+d, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:82: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x+w, y+h, z+d, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:83: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x, y+h, z+d, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:84: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x, y+h, z+d, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:85: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x, y+h, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:87: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x, y, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:88: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x, y+h, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:89: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x+w, y, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:90: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x+w, y+h, z, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:91: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x+w, y, z+d, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:92: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x+w, y+h, z+d, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:93: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x, y, z+d, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:94: error: no suitable method found for addVertex(float,float,float,float,float,float,int)
+          buf.addVertex(x, y+h, z+d, r, g, b, 1);
+             ^
+      method VertexConsumer.addVertex(Vector3fc) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,Vector3f) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Pose,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method VertexConsumer.addVertex(Matrix4fc,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+      method BufferBuilder.addVertex(float,float,float,int,float,float,int,int,float,float,float) is not applicable
+        (actual and formal argument lists differ in length)
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/Reach.java:43: error: bad operand type double for unary operator '!'
+          if (!onlyWhenAttacking.value >= 1) {
+              ^
   Note: Recompile with -Xlint:deprecation for details.
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/MaceDamage.java:45: error: incompatible types: possible lossy conversion from double to float
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:40: error: incompatible types: possible lossy conversion from double to int
+          for (int x = -range; x <= range; x++) {
+                       ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:41: error: incompatible types: possible lossy conversion from double to int
+              for (int y = -range; y <= range; y++) {
+                           ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:42: error: incompatible types: possible lossy conversion from double to int
+                  for (int z = -range; z <= range; z++) {
+                               ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/MaceDamage.java:50: error: incompatible types: possible lossy conversion from double to float
               float savedFall = mc().player.fallDistance;
                                            ^
-  1 error
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/Clutch.java:27: error: incompatible types: possible lossy conversion from float to int
+          int health = mc().player.getHealth();
+                                            ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/SpearDamage.java:59: error: incompatible types: net.minecraft.world.phys.Vec3 cannot be converted to com.sigterm.module.combat.SpearDamage.Vec3
+              Vec3 targetVel = living.getDeltaMovement();
+                                                      ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/Xray.java:6: error: cannot find symbol
+  import net.minecraft.client.renderer.BlockRenderManager;
+                                      ^
+    symbol:   class BlockRenderManager
+    location: package net.minecraft.client.renderer
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/Xray.java:8: error: cannot find symbol
+  import net.minecraft.resources.ResourceLocation;
+                                ^
+    symbol:   class ResourceLocation
+    location: package net.minecraft.resources
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/movement/BoatFly.java:6: error: cannot find symbol
+  import net.minecraft.world.entity.vehicle.BoatEntity;
+                                           ^
+    symbol:   class BoatEntity
+    location: package net.minecraft.world.entity.vehicle
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/movement/BoatFly.java:22: error: cannot find symbol
+          if (!(mc().player.getVehicle() instanceof BoatEntity)) return;
+                                                    ^
+    symbol:   class BoatEntity
+    location: class BoatFly
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/AutoCrystal.java:34: error: players is not public in ClientLevel; cannot be accessed from outside package
+          Player target = mc().level.players.stream()
+                                    ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:92: error: cannot find symbol
+          tess.end();
+              ^
+    symbol:   method end()
+    location: variable tess of type Tesselator
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:68: error: cannot find symbol
+          tess.end();
+              ^
+    symbol:   method end()
+    location: variable tess of type Tesselator
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:63: error: cannot find symbol
+          tess.end();
+              ^
+    symbol:   method end()
+    location: variable tess of type Tesselator
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/TriggerBot.java:29: error: cannot find symbol
+          Entity target = mc().player.getTarget(6.0, 1.0f);
+                                     ^
+    symbol:   method getTarget(double,float)
+    location: variable player of type LocalPlayer
+  66 errors
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
@@ -40,5 +1662,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 18s
+BUILD FAILED in 22s
 1 actionable task: 1 executed
