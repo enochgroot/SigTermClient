@@ -30,11 +30,15 @@ public class AutoCrystal extends Module {
     public void onTick() {
         if (mc().player == null || mc().level == null) return;
 
-        // Vape 4.0 style: find nearest player, place crystal targeting them, immediately break
-        Player target = mc().level.players.stream()
-            .filter(p -> p != mc().player && p.isAlive())
-            .min(Comparator.comparingDouble(p -> p.distanceTo(mc().player)))
-            .orElse(null);
+        // Find nearest player using entity iteration (players field is not public in 1.21.11)
+        Player target = null;
+        double closestDist = Double.MAX_VALUE;
+        for (Entity e : mc().level.entitiesForRendering()) {
+            if (e instanceof Player p && p != mc().player && p.isAlive()) {
+                double d = p.distanceTo(mc().player);
+                if (d < closestDist) { closestDist = d; target = p; }
+            }
+        }
 
         if (target == null) return;
 
@@ -62,12 +66,10 @@ public class AutoCrystal extends Module {
 
         double range = placeRange.value;
         
-        // Find obsidian/bedrock nearby to place on — optimized search order (closest first)
         BlockPos playerPos = mc().player.blockPosition();
         
-        // Search in expanding rings for efficiency
         for (int radius = 0; radius <= range; radius++) {
-            BlockPos foundPos = findPlacePosition(playerPos, radius);
+            BlockPos foundPos = findPlacePosition(playerPos, (int)radius);
             if (foundPos != null) {
                 Vec3 hitVec = Vec3.atCenterOf(foundPos).add(0, 0.5, 0);
                 BlockHitResult hit = new BlockHitResult(hitVec,
@@ -80,10 +82,9 @@ public class AutoCrystal extends Module {
     }
 
     private BlockPos findPlacePosition(BlockPos center, int radius) {
-        // Check perimeter blocks at this radius for obsidian/bedrock
         for (int x = -radius; x <= radius; x++) {
             for (int z = -radius; z <= radius; z++) {
-                if (Math.abs(x) != radius && Math.abs(z) != radius) continue; // only perimeter
+                if (Math.abs(x) != radius && Math.abs(z) != radius) continue;
                 
                 for (int y = -2; y <= 2; y++) {
                     BlockPos pos = center.offset(x, y, z);

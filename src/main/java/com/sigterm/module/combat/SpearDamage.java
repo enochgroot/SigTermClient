@@ -97,6 +97,4 @@ public class SpearDamage extends Module {
             chargeTicks = 0;
         }
     }
-
-    private record Vec3(double x, double y, double z) {}
 }

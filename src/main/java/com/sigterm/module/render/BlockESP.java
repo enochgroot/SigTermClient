@@ -7,7 +7,6 @@ import com.sigterm.module.Setting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.phys.AABB;
 
 public class BlockESP extends Module {
     private final Setting range;
@@ -28,7 +27,7 @@ public class BlockESP extends Module {
     public void render(GuiGraphics graphics, float partialTick) {
         if (mc().player == null || mc().level == null) return;
 
-        double range = this.range.value;
+        int range = (int) this.range.value;
         int playerX = mc().player.getBlockX();
         int playerY = mc().player.getBlockY();
         int playerZ = mc().player.getBlockZ();
@@ -43,58 +42,55 @@ public class BlockESP extends Module {
                     BlockPos pos = new BlockPos(playerX + x, playerY + y, playerZ + z);
                     var state = mc().level.getBlockState(pos);
 
-                    int r = 0, g = 0, b = 0;
+                    float r = 0, g = 0, b = 0;
                     boolean draw = false;
 
-                    if (showDiamonds.value >= 1 && state.is(Blocks.DIAMOND_ORE) || state.is(Blocks.DEEPSLATE_DIAMOND_ORE)) {
-                        draw = true; r = 0; g = 255; b = 255;
-                    } else if (showGold.value >= 1 && state.is(Blocks.GOLD_ORE) || state.is(Blocks.DEEPSLATE_GOLD_ORE)) {
-                        draw = true; r = 255; g = 215; b = 0;
-                    } else if (showIron.value >= 1 && state.is(Blocks.IRON_ORE) || state.is(Blocks.DEEPSLATE_IRON_ORE)) {
-                        draw = true; r = 200; g = 200; b = 200;
-                    } else if (showChests.value >= 1 && state.is(Blocks.CHEST) || state.is(Blocks.ENDER_CHEST)) {
-                        draw = true; r = 139; g = 69; b = 19;
+                    if (showDiamonds.value >= 1 && (state.is(Blocks.DIAMOND_ORE) || state.is(Blocks.DEEPSLATE_DIAMOND_ORE))) {
+                        draw = true; r = 0; g = 1f; b = 1f;
+                    } else if (showGold.value >= 1 && (state.is(Blocks.GOLD_ORE) || state.is(Blocks.DEEPSLATE_GOLD_ORE))) {
+                        draw = true; r = 1f; g = 0.84f; b = 0;
+                    } else if (showIron.value >= 1 && (state.is(Blocks.IRON_ORE) || state.is(Blocks.DEEPSLATE_IRON_ORE))) {
+                        draw = true; r = 0.78f; g = 0.78f; b = 0.78f;
+                    } else if (showChests.value >= 1 && (state.is(Blocks.CHEST) || state.is(Blocks.ENDER_CHEST))) {
+                        draw = true; r = 0.54f; g = 0.27f; b = 0.07f;
                     }
 
                     if (!draw) continue;
 
-                    // Draw wireframe box around block
-                    float ar = r/255f, ag = g/255f, ab = b/255f;
-                    drawBox(buffer, pos.getX(), pos.getY(), pos.getZ(), ar, ag, ab);
+                    drawBox(buffer, pos.getX(), pos.getY(), pos.getZ(), r, g, b);
                 }
             }
         }
 
-        tess.end();
+        BufferRenderer.drawWithShader(buffer.end());
     }
 
     private void drawBox(BufferBuilder buf, int x, int y, int z, float r, float g, float b) {
-        // 12 edges of a cube (24 vertices for DEBUG_LINES)
-        buf.addVertex(x, y, z, r, g, b, 1);
-        buf.addVertex(x+1, y, z, r, g, b, 1);
-        buf.addVertex(x+1, y, z, r, g, b, 1);
-        buf.addVertex(x+1, y, z+1, r, g, b, 1);
-        buf.addVertex(x+1, y, z+1, r, g, b, 1);
-        buf.addVertex(x, y, z+1, r, g, b, 1);
-        buf.addVertex(x, y, z+1, r, g, b, 1);
-        buf.addVertex(x, y, z, r, g, b, 1);
+        buf.vertex(x, y, z).color(r, g, b, 1f).next();
+        buf.vertex(x+1, y, z).color(r, g, b, 1f).next();
+        buf.vertex(x+1, y, z).color(r, g, b, 1f).next();
+        buf.vertex(x+1, y, z+1).color(r, g, b, 1f).next();
+        buf.vertex(x+1, y, z+1).color(r, g, b, 1f).next();
+        buf.vertex(x, y, z+1).color(r, g, b, 1f).next();
+        buf.vertex(x, y, z+1).color(r, g, b, 1f).next();
+        buf.vertex(x, y, z).color(r, g, b, 1f).next();
 
-        buf.addVertex(x, y+1, z, r, g, b, 1);
-        buf.addVertex(x+1, y+1, z, r, g, b, 1);
-        buf.addVertex(x+1, y+1, z, r, g, b, 1);
-        buf.addVertex(x+1, y+1, z+1, r, g, b, 1);
-        buf.addVertex(x+1, y+1, z+1, r, g, b, 1);
-        buf.addVertex(x, y+1, z+1, r, g, b, 1);
-        buf.addVertex(x, y+1, z+1, r, g, b, 1);
-        buf.addVertex(x, y+1, z, r, g, b, 1);
+        buf.vertex(x, y+1, z).color(r, g, b, 1f).next();
+        buf.vertex(x+1, y+1, z).color(r, g, b, 1f).next();
+        buf.vertex(x+1, y+1, z).color(r, g, b, 1f).next();
+        buf.vertex(x+1, y+1, z+1).color(r, g, b, 1f).next();
+        buf.vertex(x+1, y+1, z+1).color(r, g, b, 1f).next();
+        buf.vertex(x, y+1, z+1).color(r, g, b, 1f).next();
+        buf.vertex(x, y+1, z+1).color(r, g, b, 1f).next();
+        buf.vertex(x, y+1, z).color(r, g, b, 1f).next();
 
-        buf.addVertex(x, y, z, r, g, b, 1);
-        buf.addVertex(x, y+1, z, r, g, b, 1);
-        buf.addVertex(x+1, y, z, r, g, b, 1);
-        buf.addVertex(x+1, y+1, z, r, g, b, 1);
-        buf.addVertex(x+1, y, z+1, r, g, b, 1);
-        buf.addVertex(x+1, y+1, z+1, r, g, b, 1);
-        buf.addVertex(x, y, z+1, r, g, b, 1);
-        buf.addVertex(x, y+1, z+1, r, g, b, 1);
+        buf.vertex(x, y, z).color(r, g, b, 1f).next();
+        buf.vertex(x, y+1, z).color(r, g, b, 1f).next();
+        buf.vertex(x+1, y, z).color(r, g, b, 1f).next();
+        buf.vertex(x+1, y+1, z).color(r, g, b, 1f).next();
+        buf.vertex(x+1, y, z+1).color(r, g, b, 1f).next();
+        buf.vertex(x+1, y+1, z+1).color(r, g, b, 1f).next();
+        buf.vertex(x, y, z+1).color(r, g, b, 1f).next();
+        buf.vertex(x, y+1, z+1).color(r, g, b, 1f).next();
     }
 }
