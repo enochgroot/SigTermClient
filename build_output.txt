@@ -6,26 +6,20 @@ Fabric Loom: 1.14.10
 Cannot remap modifiers because it does not exists in any of the targets [] or their parents.
 
 > Task :compileJava
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:84: error: cannot find symbol
-            buffer.vertex(cx, cy, 0).color(ar, ag, ab, aa).next();
-                  ^
-  symbol:   method vertex(int,int,int)
-  location: variable buffer of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:85: error: cannot find symbol
-            buffer.vertex(ex, ey, 0).color(ar, ag, ab, aa).next();
-                  ^
-  symbol:   method vertex(int,int,int)
-  location: variable buffer of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:88: error: cannot find symbol
-        BufferRenderer.drawWithShader(buffer.end());
-        ^
-  symbol:   variable BufferRenderer
-  location: class TracerRenderer
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:88: error: cannot find symbol
-        BufferRenderer.drawWithShader(buffer.end());
-                                            ^
-  symbol:   method end()
-  location: variable buffer of type BufferBuilder
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/Clutch.java:27: error: incompatible types: possible lossy conversion from float to int
+        int health = mc().player.getHealth();
+                                          ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/Reach.java:43: error: bad operand type double for unary operator '!'
+        if (!onlyWhenAttacking.value >= 1) {
+            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/SpearDamage.java:59: error: cannot find symbol
+            Vec3 targetVel = living.getDeltaMovement();
+            ^
+  symbol:   class Vec3
+  location: class SpearDamage
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/MaceDamage.java:50: error: incompatible types: possible lossy conversion from double to float
+            float savedFall = mc().player.fallDistance;
+                                         ^
 /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:65: error: cannot find symbol
         BufferRenderer.drawWithShader(buffer.end());
         ^
@@ -36,126 +30,83 @@ Cannot remap modifiers because it does not exists in any of the targets [] or th
                                             ^
   symbol:   method end()
   location: variable buffer of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:69: error: cannot find symbol
-        buf.vertex(x, y, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:70: error: cannot find symbol
-        buf.vertex(x+1, y, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:71: error: cannot find symbol
-        buf.vertex(x+1, y, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:72: error: cannot find symbol
-        buf.vertex(x+1, y, z+1).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:73: error: cannot find symbol
-        buf.vertex(x+1, y, z+1).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:74: error: cannot find symbol
-        buf.vertex(x, y, z+1).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:75: error: cannot find symbol
-        buf.vertex(x, y, z+1).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:76: error: cannot find symbol
-        buf.vertex(x, y, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:78: error: cannot find symbol
-        buf.vertex(x, y+1, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:79: error: cannot find symbol
-        buf.vertex(x+1, y+1, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:80: error: cannot find symbol
-        buf.vertex(x+1, y+1, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:81: error: cannot find symbol
-        buf.vertex(x+1, y+1, z+1).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:82: error: cannot find symbol
-        buf.vertex(x+1, y+1, z+1).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:83: error: cannot find symbol
-        buf.vertex(x, y+1, z+1).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:84: error: cannot find symbol
-        buf.vertex(x, y+1, z+1).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:85: error: cannot find symbol
-        buf.vertex(x, y+1, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:87: error: cannot find symbol
-        buf.vertex(x, y, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:88: error: cannot find symbol
-        buf.vertex(x, y+1, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:89: error: cannot find symbol
-        buf.vertex(x+1, y, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:90: error: cannot find symbol
-        buf.vertex(x+1, y+1, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:91: error: cannot find symbol
-        buf.vertex(x+1, y, z+1).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:92: error: cannot find symbol
-        buf.vertex(x+1, y+1, z+1).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:93: error: cannot find symbol
-        buf.vertex(x, y, z+1).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:94: error: cannot find symbol
-        buf.vertex(x, y+1, z+1).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(int,int,int)
-  location: variable buf of type BufferBuilder
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:69: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                          ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:70: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+1, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:71: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+1, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:72: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+1, y, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:73: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+1, y, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:74: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:75: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:76: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                          ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:78: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y+1, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:79: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+1, y+1, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:80: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+1, y+1, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:81: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+1, y+1, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:82: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+1, y+1, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:83: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y+1, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:84: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y+1, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:85: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y+1, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:87: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                          ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:88: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y+1, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:89: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+1, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:90: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+1, y+1, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:91: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+1, y, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:92: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+1, y+1, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:93: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:94: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y+1, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:38: error: cannot find symbol
+            if (entity == mc.player || !entity.isAlive()) continue;
+                          ^
+  symbol:   variable mc
+  location: class MobESP
 /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:62: error: cannot find symbol
         BufferRenderer.drawWithShader(buffer.end());
         ^
@@ -166,151 +117,100 @@ Cannot remap modifiers because it does not exists in any of the targets [] or th
                                             ^
   symbol:   method end()
   location: variable buffer of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:67: error: cannot find symbol
-        buf.vertex(x, y, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:68: error: cannot find symbol
-        buf.vertex(x+w, y, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:69: error: cannot find symbol
-        buf.vertex(x+w, y, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:70: error: cannot find symbol
-        buf.vertex(x+w, y, z+d).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:71: error: cannot find symbol
-        buf.vertex(x+w, y, z+d).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:72: error: cannot find symbol
-        buf.vertex(x, y, z+d).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:73: error: cannot find symbol
-        buf.vertex(x, y, z+d).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:74: error: cannot find symbol
-        buf.vertex(x, y, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:76: error: cannot find symbol
-        buf.vertex(x, y+h, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:77: error: cannot find symbol
-        buf.vertex(x+w, y+h, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:78: error: cannot find symbol
-        buf.vertex(x+w, y+h, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:79: error: cannot find symbol
-        buf.vertex(x+w, y+h, z+d).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:80: error: cannot find symbol
-        buf.vertex(x+w, y+h, z+d).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:81: error: cannot find symbol
-        buf.vertex(x, y+h, z+d).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:82: error: cannot find symbol
-        buf.vertex(x, y+h, z+d).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:83: error: cannot find symbol
-        buf.vertex(x, y+h, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:85: error: cannot find symbol
-        buf.vertex(x, y, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:86: error: cannot find symbol
-        buf.vertex(x, y+h, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:87: error: cannot find symbol
-        buf.vertex(x+w, y, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:88: error: cannot find symbol
-        buf.vertex(x+w, y+h, z).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:89: error: cannot find symbol
-        buf.vertex(x+w, y, z+d).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:90: error: cannot find symbol
-        buf.vertex(x+w, y+h, z+d).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:91: error: cannot find symbol
-        buf.vertex(x, y, z+d).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:92: error: cannot find symbol
-        buf.vertex(x, y+h, z+d).color(r, g, b, 1f).next();
-           ^
-  symbol:   method vertex(float,float,float)
-  location: variable buf of type BufferBuilder
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/Reach.java:43: error: bad operand type double for unary operator '!'
-        if (!onlyWhenAttacking.value >= 1) {
-            ^
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/MaceDamage.java:50: error: incompatible types: possible lossy conversion from double to float
-            float savedFall = mc().player.fallDistance;
-                                         ^
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/Clutch.java:27: error: incompatible types: possible lossy conversion from float to int
-        int health = mc().player.getHealth();
-                                          ^
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/SpearDamage.java:59: error: cannot find symbol
-            Vec3 targetVel = living.getDeltaMovement();
-            ^
-  symbol:   class Vec3
-  location: class SpearDamage
-/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/TriggerBot.java:29: error: cannot find symbol
-        Entity target = mc().crosshairPickEntity(6.0, 1.0f, false, false);
-                            ^
-  symbol:   method crosshairPickEntity(double,float,boolean,boolean)
-  location: class Minecraft
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:67: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                          ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:68: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+w, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:69: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+w, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:70: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+w, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:71: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+w, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:72: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:73: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:74: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                          ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:76: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:77: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+w, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:78: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+w, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:79: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+w, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:80: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+w, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:81: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:82: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:83: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:85: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                          ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:86: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:87: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+w, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:88: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+w, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:89: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+w, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:90: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x+w, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:91: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:92: error: endLastVertex() has private access in BufferBuilder
+        buf.addVertex(x, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:84: error: endLastVertex() has private access in BufferBuilder
+            buffer.endLastVertex();
+                  ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:86: error: endLastVertex() has private access in BufferBuilder
+            buffer.endLastVertex();
+                  ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:89: error: cannot find symbol
+        BufferRenderer.drawWithShader(buffer.end());
+        ^
+  symbol:   variable BufferRenderer
+  location: class TracerRenderer
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:89: error: cannot find symbol
+        BufferRenderer.drawWithShader(buffer.end());
+                                            ^
+  symbol:   method end()
+  location: variable buffer of type BufferBuilder
 Note: /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/SigTermClient.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 61 errors
 
 > Task :compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1777323110125.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1777334294594.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/SigTermClient/SigTermClient/build/reports/problems/problems-report.html
 
@@ -324,302 +224,202 @@ Execution failed for task ':compileJava'.
           if (!onlyWhenAttacking.value >= 1) {
               ^
   Note: Recompile with -Xlint:deprecation for details.
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/MaceDamage.java:50: error: incompatible types: possible lossy conversion from double to float
-              float savedFall = mc().player.fallDistance;
-                                           ^
   /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/Clutch.java:27: error: incompatible types: possible lossy conversion from float to int
           int health = mc().player.getHealth();
                                             ^
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:88: error: cannot find symbol
-          BufferRenderer.drawWithShader(buffer.end());
-          ^
-    symbol:   variable BufferRenderer
-    location: class TracerRenderer
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:65: error: cannot find symbol
-          BufferRenderer.drawWithShader(buffer.end());
-          ^
-    symbol:   variable BufferRenderer
-    location: class BlockESP
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:62: error: cannot find symbol
-          BufferRenderer.drawWithShader(buffer.end());
-          ^
-    symbol:   variable BufferRenderer
-    location: class MobESP
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/MaceDamage.java:50: error: incompatible types: possible lossy conversion from double to float
+              float savedFall = mc().player.fallDistance;
+                                           ^
   /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/SpearDamage.java:59: error: cannot find symbol
               Vec3 targetVel = living.getDeltaMovement();
               ^
     symbol:   class Vec3
     location: class SpearDamage
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:84: error: cannot find symbol
-              buffer.vertex(cx, cy, 0).color(ar, ag, ab, aa).next();
-                    ^
-    symbol:   method vertex(int,int,int)
-    location: variable buffer of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:85: error: cannot find symbol
-              buffer.vertex(ex, ey, 0).color(ar, ag, ab, aa).next();
-                    ^
-    symbol:   method vertex(int,int,int)
-    location: variable buffer of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:88: error: cannot find symbol
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:65: error: cannot find symbol
           BufferRenderer.drawWithShader(buffer.end());
-                                              ^
-    symbol:   method end()
-    location: variable buffer of type BufferBuilder
+          ^
+    symbol:   variable BufferRenderer
+    location: class BlockESP
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:38: error: cannot find symbol
+              if (entity == mc.player || !entity.isAlive()) continue;
+                            ^
+    symbol:   variable mc
+    location: class MobESP
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:62: error: cannot find symbol
+          BufferRenderer.drawWithShader(buffer.end());
+          ^
+    symbol:   variable BufferRenderer
+    location: class MobESP
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:89: error: cannot find symbol
+          BufferRenderer.drawWithShader(buffer.end());
+          ^
+    symbol:   variable BufferRenderer
+    location: class TracerRenderer
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:69: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:70: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+1, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:71: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+1, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:72: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+1, y, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:73: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+1, y, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:74: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:75: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:76: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:78: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y+1, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:79: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+1, y+1, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:80: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+1, y+1, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:81: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+1, y+1, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                  ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:82: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+1, y+1, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                  ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:83: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y+1, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:84: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y+1, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:85: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y+1, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:87: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:88: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y+1, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:89: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+1, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:90: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+1, y+1, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:91: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+1, y, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:92: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+1, y+1, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                  ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:93: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:94: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y+1, z+1).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:67: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:68: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+w, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:69: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+w, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:70: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+w, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:71: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+w, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:72: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:73: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:74: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:76: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:77: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+w, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:78: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+w, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:79: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+w, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                  ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:80: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+w, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                  ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:81: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:82: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:83: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:85: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                            ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:86: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:87: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+w, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:88: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+w, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:89: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+w, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:90: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x+w, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                  ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:91: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:92: error: endLastVertex() has private access in BufferBuilder
+          buf.addVertex(x, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+                                                                ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:84: error: endLastVertex() has private access in BufferBuilder
+              buffer.endLastVertex();
+                    ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:86: error: endLastVertex() has private access in BufferBuilder
+              buffer.endLastVertex();
+                    ^
   /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:65: error: cannot find symbol
           BufferRenderer.drawWithShader(buffer.end());
                                               ^
     symbol:   method end()
     location: variable buffer of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:69: error: cannot find symbol
-          buf.vertex(x, y, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:70: error: cannot find symbol
-          buf.vertex(x+1, y, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:71: error: cannot find symbol
-          buf.vertex(x+1, y, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:72: error: cannot find symbol
-          buf.vertex(x+1, y, z+1).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:73: error: cannot find symbol
-          buf.vertex(x+1, y, z+1).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:74: error: cannot find symbol
-          buf.vertex(x, y, z+1).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:75: error: cannot find symbol
-          buf.vertex(x, y, z+1).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:76: error: cannot find symbol
-          buf.vertex(x, y, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:78: error: cannot find symbol
-          buf.vertex(x, y+1, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:79: error: cannot find symbol
-          buf.vertex(x+1, y+1, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:80: error: cannot find symbol
-          buf.vertex(x+1, y+1, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:81: error: cannot find symbol
-          buf.vertex(x+1, y+1, z+1).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:82: error: cannot find symbol
-          buf.vertex(x+1, y+1, z+1).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:83: error: cannot find symbol
-          buf.vertex(x, y+1, z+1).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:84: error: cannot find symbol
-          buf.vertex(x, y+1, z+1).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:85: error: cannot find symbol
-          buf.vertex(x, y+1, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:87: error: cannot find symbol
-          buf.vertex(x, y, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:88: error: cannot find symbol
-          buf.vertex(x, y+1, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:89: error: cannot find symbol
-          buf.vertex(x+1, y, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:90: error: cannot find symbol
-          buf.vertex(x+1, y+1, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:91: error: cannot find symbol
-          buf.vertex(x+1, y, z+1).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:92: error: cannot find symbol
-          buf.vertex(x+1, y+1, z+1).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:93: error: cannot find symbol
-          buf.vertex(x, y, z+1).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:94: error: cannot find symbol
-          buf.vertex(x, y+1, z+1).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(int,int,int)
-    location: variable buf of type BufferBuilder
   /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:62: error: cannot find symbol
           BufferRenderer.drawWithShader(buffer.end());
                                               ^
     symbol:   method end()
     location: variable buffer of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:67: error: cannot find symbol
-          buf.vertex(x, y, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:68: error: cannot find symbol
-          buf.vertex(x+w, y, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:69: error: cannot find symbol
-          buf.vertex(x+w, y, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:70: error: cannot find symbol
-          buf.vertex(x+w, y, z+d).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:71: error: cannot find symbol
-          buf.vertex(x+w, y, z+d).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:72: error: cannot find symbol
-          buf.vertex(x, y, z+d).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:73: error: cannot find symbol
-          buf.vertex(x, y, z+d).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:74: error: cannot find symbol
-          buf.vertex(x, y, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:76: error: cannot find symbol
-          buf.vertex(x, y+h, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:77: error: cannot find symbol
-          buf.vertex(x+w, y+h, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:78: error: cannot find symbol
-          buf.vertex(x+w, y+h, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:79: error: cannot find symbol
-          buf.vertex(x+w, y+h, z+d).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:80: error: cannot find symbol
-          buf.vertex(x+w, y+h, z+d).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:81: error: cannot find symbol
-          buf.vertex(x, y+h, z+d).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:82: error: cannot find symbol
-          buf.vertex(x, y+h, z+d).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:83: error: cannot find symbol
-          buf.vertex(x, y+h, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:85: error: cannot find symbol
-          buf.vertex(x, y, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:86: error: cannot find symbol
-          buf.vertex(x, y+h, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:87: error: cannot find symbol
-          buf.vertex(x+w, y, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:88: error: cannot find symbol
-          buf.vertex(x+w, y+h, z).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:89: error: cannot find symbol
-          buf.vertex(x+w, y, z+d).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:90: error: cannot find symbol
-          buf.vertex(x+w, y+h, z+d).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:91: error: cannot find symbol
-          buf.vertex(x, y, z+d).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:92: error: cannot find symbol
-          buf.vertex(x, y+h, z+d).color(r, g, b, 1f).next();
-             ^
-    symbol:   method vertex(float,float,float)
-    location: variable buf of type BufferBuilder
-  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/TriggerBot.java:29: error: cannot find symbol
-          Entity target = mc().crosshairPickEntity(6.0, 1.0f, false, false);
-                              ^
-    symbol:   method crosshairPickEntity(double,float,boolean,boolean)
-    location: class Minecraft
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/render/TracerRenderer.java:89: error: cannot find symbol
+          BufferRenderer.drawWithShader(buffer.end());
+                                              ^
+    symbol:   method end()
+    location: variable buffer of type BufferBuilder
   61 errors
 
 * Try:
@@ -632,5 +432,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 17s
+BUILD FAILED in 21s
 1 actionable task: 1 executed
