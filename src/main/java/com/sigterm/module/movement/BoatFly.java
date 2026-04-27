@@ -3,7 +3,7 @@ package com.sigterm.module.movement;
 import com.sigterm.module.Category;
 import com.sigterm.module.Module;
 import com.sigterm.module.Setting;
-import net.minecraft.world.entity.vehicle.BoatEntity;
+import net.minecraft.world.entity.Entity;
 import org.lwjgl.glfw.GLFW;
 
 public class BoatFly extends Module {
@@ -18,12 +18,12 @@ public class BoatFly extends Module {
     public void onTick() {
         if (mc().player == null) return;
 
-        // Check if player is in a boat
-        if (!(mc().player.getVehicle() instanceof BoatEntity)) return;
+        // Check if player is in a boat (any vehicle with "boat" in name)
+        Entity vehicle = mc().player.getVehicle();
+        if (vehicle == null || !vehicle.getType().getDescription().getString().toLowerCase().contains("boat")) return;
 
         double spd = speed.value * 0.25;
 
-        // Calculate movement from WASD input relative to look direction
         float yaw = (float) Math.toRadians(mc().player.getYRot());
         double forwardX = -Math.sin(yaw);
         double forwardZ = Math.cos(yaw);
@@ -36,7 +36,6 @@ public class BoatFly extends Module {
         if (mc().options.keyLeft.isDown())   { mx += strafeX;  mz += strafeZ; }
         if (mc().options.keyRight.isDown())   { mx -= strafeX;  mz -= strafeZ; }
 
-        // Normalize and apply speed
         double len = Math.sqrt(mx * mx + mz * mz);
         if (len > 0) { mx = mx / len * spd; mz = mz / len * spd; }
 

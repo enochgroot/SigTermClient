@@ -38,8 +38,7 @@ public class TracerRenderer {
 
         float yaw = (float) Math.toRadians(mc.player.getYRot());
         float pitch = (float) Math.toRadians(mc.player.getXRot());
-        
-        // Pre-compute camera basis vectors (only once per frame)
+
         double fx = -Math.sin(yaw)*Math.cos(pitch);
         double fy = -Math.sin(pitch);
         double fz = Math.cos(yaw)*Math.cos(pitch);
@@ -51,7 +50,6 @@ public class TracerRenderer {
 
         Vec3 pPos = mc.player.getEyePosition(partialTick);
 
-        // Use Tesselator for batched line rendering — MUCH faster than per-pixel fills
         Tesselator tess = Tesselator.getInstance();
         BufferBuilder buffer = tess.begin(VertexFormat.Mode.DEBUG_LINES, 
             DefaultVertexFormat.POSITION_COLOR);
@@ -83,12 +81,10 @@ public class TracerRenderer {
             int alpha = Math.max(40, Math.min(255, (int)(255 * (1.0 - dist / range))));
             float ar = r / 255f, ag = g / 255f, ab = b / 255f, aa = alpha / 255f;
 
-            // Add line to batch buffer (single vertex call per entity)
-            buffer.addVertex(cx, cy, 0, ar, ag, ab, aa);
-            buffer.addVertex(ex, ey, 0, ar, ag, ab, aa);
+            buffer.vertex(cx, cy, 0).color(ar, ag, ab, aa).next();
+            buffer.vertex(ex, ey, 0).color(ar, ag, ab, aa).next();
         }
 
-        // Submit all lines in one draw call
-        tess.end();
+        BufferRenderer.drawWithShader(buffer.end());
     }
 }

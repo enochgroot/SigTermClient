@@ -54,43 +54,41 @@ public class MobESP extends Module {
 
             if (!draw) continue;
 
-            // Draw wireframe box around entity
             var bb = entity.getBoundingBox();
             drawBox(buffer, (float)bb.minX, (float)bb.minY, (float)bb.minZ, 
                      (float)(bb.maxX-bb.minX), (float)(bb.maxY-bb.minY), (float)(bb.maxZ-bb.minZ), r, g, b);
         }
 
-        tess.end();
+        BufferRenderer.drawWithShader(buffer.end());
     }
 
     private void drawBox(BufferBuilder buf, float x, float y, float z, float w, float h, float d, 
                          float r, float g, float b) {
-        // 12 edges of a box (24 vertices for DEBUG_LINES)
-        buf.addVertex(x, y, z, r, g, b, 1);
-        buf.addVertex(x+w, y, z, r, g, b, 1);
-        buf.addVertex(x+w, y, z, r, g, b, 1);
-        buf.addVertex(x+w, y, z+d, r, g, b, 1);
-        buf.addVertex(x+w, y, z+d, r, g, b, 1);
-        buf.addVertex(x, y, z+d, r, g, b, 1);
-        buf.addVertex(x, y, z+d, r, g, b, 1);
-        buf.addVertex(x, y, z, r, g, b, 1);
+        buf.vertex(x, y, z).color(r, g, b, 1f).next();
+        buf.vertex(x+w, y, z).color(r, g, b, 1f).next();
+        buf.vertex(x+w, y, z).color(r, g, b, 1f).next();
+        buf.vertex(x+w, y, z+d).color(r, g, b, 1f).next();
+        buf.vertex(x+w, y, z+d).color(r, g, b, 1f).next();
+        buf.vertex(x, y, z+d).color(r, g, b, 1f).next();
+        buf.vertex(x, y, z+d).color(r, g, b, 1f).next();
+        buf.vertex(x, y, z).color(r, g, b, 1f).next();
 
-        buf.addVertex(x, y+h, z, r, g, b, 1);
-        buf.addVertex(x+w, y+h, z, r, g, b, 1);
-        buf.addVertex(x+w, y+h, z, r, g, b, 1);
-        buf.addVertex(x+w, y+h, z+d, r, g, b, 1);
-        buf.addVertex(x+w, y+h, z+d, r, g, b, 1);
-        buf.addVertex(x, y+h, z+d, r, g, b, 1);
-        buf.addVertex(x, y+h, z+d, r, g, b, 1);
-        buf.addVertex(x, y+h, z, r, g, b, 1);
+        buf.vertex(x, y+h, z).color(r, g, b, 1f).next();
+        buf.vertex(x+w, y+h, z).color(r, g, b, 1f).next();
+        buf.vertex(x+w, y+h, z).color(r, g, b, 1f).next();
+        buf.vertex(x+w, y+h, z+d).color(r, g, b, 1f).next();
+        buf.vertex(x+w, y+h, z+d).color(r, g, b, 1f).next();
+        buf.vertex(x, y+h, z+d).color(r, g, b, 1f).next();
+        buf.vertex(x, y+h, z+d).color(r, g, b, 1f).next();
+        buf.vertex(x, y+h, z).color(r, g, b, 1f).next();
 
-        buf.addVertex(x, y, z, r, g, b, 1);
-        buf.addVertex(x, y+h, z, r, g, b, 1);
-        buf.addVertex(x+w, y, z, r, g, b, 1);
-        buf.addVertex(x+w, y+h, z, r, g, b, 1);
-        buf.addVertex(x+w, y, z+d, r, g, b, 1);
-        buf.addVertex(x+w, y+h, z+d, r, g, b, 1);
-        buf.addVertex(x, y, z+d, r, g, b, 1);
-        buf.addVertex(x, y+h, z+d, r, g, b, 1);
+        buf.vertex(x, y, z).color(r, g, b, 1f).next();
+        buf.vertex(x, y+h, z).color(r, g, b, 1f).next();
+        buf.vertex(x+w, y, z).color(r, g, b, 1f).next();
+        buf.vertex(x+w, y+h, z).color(r, g, b, 1f).next();
+        buf.vertex(x+w, y, z+d).color(r, g, b, 1f).next();
+        buf.vertex(x+w, y+h, z+d).color(r, g, b, 1f).next();
+        buf.vertex(x, y, z+d).color(r, g, b, 1f).next();
+        buf.vertex(x, y+h, z+d).color(r, g, b, 1f).next();
     }
 }
