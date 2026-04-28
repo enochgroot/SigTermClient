@@ -85,6 +85,6 @@ public class TracerRenderer {
             buffer.addVertex(ex, ey, 0, packedColor, 0, 0, 0, 0, 0, 0, 0);
         }
 
-        BufferRenderer.drawWithShader(buffer.end());
+        BufferRenderer.drawWithShader(buffer.build());
     }
 }

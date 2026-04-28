@@ -63,7 +63,7 @@ public class BlockESP extends Module {
             }
         }
 
-        BufferRenderer.drawWithShader(buffer.end());
+        BufferRenderer.drawWithShader(buffer.build());
     }
 
     private void drawBox(BufferBuilder buf, int x, int y, int z, int c) {

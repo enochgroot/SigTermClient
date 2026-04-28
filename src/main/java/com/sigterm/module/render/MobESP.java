@@ -60,7 +60,7 @@ public class MobESP extends Module {
                      (float)(bb.maxX-bb.minX), (float)(bb.maxY-bb.minY), (float)(bb.maxZ-bb.minZ), c);
         }
 
-        BufferRenderer.drawWithShader(buffer.end());
+        BufferRenderer.drawWithShader(buffer.build());
     }
 
     private void drawBox(BufferBuilder buf, float x, float y, float z, float w, float h, float d, int c) {
