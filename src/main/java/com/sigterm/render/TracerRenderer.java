@@ -79,11 +79,10 @@ public class TracerRenderer {
             int ey = Math.max(0, Math.min(screenH, cy + (int)(sy * scale)));
 
             int alpha = Math.max(40, Math.min(255, (int)(255 * (1.0 - dist / range))));
+            int packedColor = (r << 24) | (g << 16) | (b << 8) | alpha;
 
-            buffer.addVertex(cx, cy, 0).setColor(r, g, b, alpha);
-            buffer.endLastVertex();
-            buffer.addVertex(ex, ey, 0).setColor(r, g, b, alpha);
-            buffer.endLastVertex();
+            buffer.addVertex(cx, cy, 0, packedColor, 0, 0, 0, 0, 0, 0, 0);
+            buffer.addVertex(ex, ey, 0, packedColor, 0, 0, 0, 0, 0, 0, 0);
         }
 
         BufferRenderer.drawWithShader(buffer.end());

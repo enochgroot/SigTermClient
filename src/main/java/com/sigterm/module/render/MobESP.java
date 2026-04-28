@@ -55,40 +55,40 @@ public class MobESP extends Module {
             if (!draw) continue;
 
             var bb = entity.getBoundingBox();
+            int c = (r << 24) | (g << 16) | (b << 8) | 0xFF;
             drawBox(buffer, (float)bb.minX, (float)bb.minY, (float)bb.minZ, 
-                     (float)(bb.maxX-bb.minX), (float)(bb.maxY-bb.minY), (float)(bb.maxZ-bb.minZ), r, g, b);
+                     (float)(bb.maxX-bb.minX), (float)(bb.maxY-bb.minY), (float)(bb.maxZ-bb.minZ), c);
         }
 
         BufferRenderer.drawWithShader(buffer.end());
     }
 
-    private void drawBox(BufferBuilder buf, float x, float y, float z, float w, float h, float d, 
-                         int r, int g, int b) {
-        buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x+w, y, z).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x+w, y, z).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x+w, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x+w, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
+    private void drawBox(BufferBuilder buf, float x, float y, float z, float w, float h, float d, int c) {
+        buf.addVertex(x, y, z, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x+w, y, z, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x+w, y, z, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x+w, y, z+d, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x+w, y, z+d, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x, y, z+d, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x, y, z+d, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x, y, z, c, 0, 0, 0, 0, 0, 0, 0);
 
-        buf.addVertex(x, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x+w, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x+w, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x+w, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x+w, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
+        buf.addVertex(x, y+h, z, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x+w, y+h, z, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x+w, y+h, z, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x+w, y+h, z+d, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x+w, y+h, z+d, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x, y+h, z+d, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x, y+h, z+d, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x, y+h, z, c, 0, 0, 0, 0, 0, 0, 0);
 
-        buf.addVertex(x, y, z).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x+w, y, z).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x+w, y+h, z).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x+w, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x+w, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x, y, z+d).setColor(r, g, b, 255); buf.endLastVertex();
-        buf.addVertex(x, y+h, z+d).setColor(r, g, b, 255); buf.endLastVertex();
+        buf.addVertex(x, y, z, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x, y+h, z, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x+w, y, z, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x+w, y+h, z, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x+w, y, z+d, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x+w, y+h, z+d, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x, y, z+d, c, 0, 0, 0, 0, 0, 0, 0);
+        buf.addVertex(x, y+h, z+d, c, 0, 0, 0, 0, 0, 0, 0);
     }
 }
