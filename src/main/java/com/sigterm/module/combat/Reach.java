@@ -40,7 +40,7 @@ public class Reach extends Module {
         }
 
         // Auto-attack entities in extended range (TriggerBot-style when not onlyWhenAttacking)
-        if (!onlyWhenAttacking.value >= 1) {
+        if (onlyWhenAttacking.value < 1) {
             mc().player.swing(mc().player.getUsedItemHand());
             mc().gameMode.attack(mc().player, target);
             mc().player.resetAttackStrengthTicker();

@@ -24,7 +24,7 @@ public class Clutch extends Module {
     public void onTick() {
         if (mc().player == null) return;
 
-        int health = mc().player.getHealth();
+        float health = mc().player.getHealth();
         int threshold = (int) healthThreshold.value;
         boolean shouldClutch = health <= threshold;
 

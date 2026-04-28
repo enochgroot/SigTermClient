@@ -47,7 +47,7 @@ public class MaceDamage extends Module {
 
         if (mode.value < 0.5) {
             // Mode 0: Spoof — set fallDistance right before attacking, then NoFall after
-            float savedFall = mc().player.fallDistance;
+            double savedFall = mc().player.fallDistance;
             mc().player.fallDistance = (float) fallDist.value;
             mc().player.swing(mc().player.getUsedItemHand());
             mc().gameMode.attack(mc().player, target);

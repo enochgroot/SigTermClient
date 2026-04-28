@@ -7,6 +7,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.phys.Vec3;
 import org.lwjgl.glfw.GLFW;
 import java.util.Comparator;
 

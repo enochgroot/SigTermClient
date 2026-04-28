@@ -1,15 +1,9 @@
 package com.sigterm.module.render;
 
-import com.mojang.blaze3d.vertex.*;
 import com.sigterm.module.Category;
 import com.sigterm.module.Module;
 import com.sigterm.module.Setting;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.player.Player;
 
 public class MobESP extends Module {
     private final Setting range;
@@ -26,69 +20,6 @@ public class MobESP extends Module {
     }
 
     public void render(GuiGraphics graphics, float partialTick) {
-        if (mc().player == null || mc().level == null) return;
-
-        double range = this.range.value;
-
-        Tesselator tess = Tesselator.getInstance();
-        BufferBuilder buffer = tess.begin(VertexFormat.Mode.DEBUG_LINES, 
-            DefaultVertexFormat.POSITION_COLOR);
-
-        for (Entity entity : mc().level.entitiesForRendering()) {
-            if (entity == mc.player || !entity.isAlive()) continue;
-            double dist = entity.distanceTo(mc().player);
-            if (dist > range) continue;
-
-            int r = 0, g = 0, b = 0;
-            boolean draw = false;
-
-            if (entity instanceof Player && showPlayers.value >= 1) {
-                draw = true; r = 255; g = 50; b = 50;
-            } else if (entity instanceof Monster && showMobs.value >= 1) {
-                draw = true; r = 50; g = 255; b = 50;
-            } else if (entity instanceof Animal && showAnimals.value >= 1) {
-                draw = true; r = 50; g = 200; b = 255;
-            } else if (entity instanceof LivingEntity && showMobs.value >= 1) {
-                draw = true; r = 200; g = 100; b = 255;
-            }
-
-            if (!draw) continue;
-
-            var bb = entity.getBoundingBox();
-            int c = (r << 24) | (g << 16) | (b << 8) | 0xFF;
-            drawBox(buffer, (float)bb.minX, (float)bb.minY, (float)bb.minZ, 
-                     (float)(bb.maxX-bb.minX), (float)(bb.maxY-bb.minY), (float)(bb.maxZ-bb.minZ), c);
-        }
-
-        BufferRenderer.drawWithShader(buffer.build());
-    }
-
-    private void drawBox(BufferBuilder buf, float x, float y, float z, float w, float h, float d, int c) {
-        buf.addVertex(x, y, z, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x+w, y, z, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x+w, y, z, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x+w, y, z+d, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x+w, y, z+d, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x, y, z+d, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x, y, z+d, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x, y, z, c, 0, 0, 0, 0, 0, 0, 0);
-
-        buf.addVertex(x, y+h, z, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x+w, y+h, z, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x+w, y+h, z, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x+w, y+h, z+d, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x+w, y+h, z+d, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x, y+h, z+d, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x, y+h, z+d, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x, y+h, z, c, 0, 0, 0, 0, 0, 0, 0);
-
-        buf.addVertex(x, y, z, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x, y+h, z, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x+w, y, z, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x+w, y+h, z, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x+w, y, z+d, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x+w, y+h, z+d, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x, y, z+d, c, 0, 0, 0, 0, 0, 0, 0);
-        buf.addVertex(x, y+h, z+d, c, 0, 0, 0, 0, 0, 0, 0);
+        // TODO: Implement with GuiGraphics - needs 3D to 2D projection
     }
 }
