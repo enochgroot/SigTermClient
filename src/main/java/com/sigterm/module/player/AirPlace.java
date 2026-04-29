@@ -15,7 +15,7 @@ public class AirPlace extends Module {
     private int cooldown = 0;
 
     public AirPlace() {
-        super("AirPlace", "Place blocks in mid-air", Category.PLAYER, 0);
+        super("AirPlace", "Place blocks in mid-air (raycast + face check)", Category.PLAYER, 0);
         reach = addSetting("Reach", 4.5, 2.0, 6.0, 0.5, "m");
     }
 
@@ -23,26 +23,37 @@ public class AirPlace extends Module {
     public void onTick() {
         if (mc().player == null || mc().gameMode == null) return;
         if (cooldown > 0) { cooldown--; return; }
-
-        // Only when holding a block and right-clicking
         if (!mc().options.keyUse.isDown()) return;
         if (!(mc().player.getMainHandItem().getItem() instanceof BlockItem)) return;
-
-        // If we already have a valid block target, let vanilla handle it
         if (mc().hitResult instanceof BlockHitResult bhr && bhr.getType() != net.minecraft.world.phys.HitResult.Type.MISS) return;
-
-        // Calculate position in front of the player at reach distance
         Vec3 eye = mc().player.getEyePosition(1.0f);
         Vec3 look = mc().player.getLookAngle();
         double r = reach.value;
+        for (double d = 0.5; d < r; d += 0.1) {
+            Vec3 check = eye.add(look.x * d, look.y * d, look.z * d);
+            BlockPos pos = BlockPos.containing(check);
+            if (!mc().level.getBlockState(pos).isAir()) {
+                Direction face = getClosestFace(eye, pos);
+                Vec3 target = Vec3.atCenterOf(pos).add(face.getNormal().scale(0.5));
+                BlockHitResult fakeHit = new BlockHitResult(target, face, pos.above(face.getStepY()), false);
+                mc().gameMode.useItemOn(mc().player, InteractionHand.MAIN_HAND, fakeHit);
+                cooldown = 4;
+                return;
+            }
+        }
         Vec3 target = eye.add(look.x * r, look.y * r, look.z * r);
         BlockPos pos = BlockPos.containing(target);
-
-        // Create a fake block hit result pointing at the air position
-        BlockHitResult fakeHit = new BlockHitResult(
-            target, Direction.UP, pos, false);
-
+        BlockHitResult fakeHit = new BlockHitResult(target, Direction.UP, pos, false);
         mc().gameMode.useItemOn(mc().player, InteractionHand.MAIN_HAND, fakeHit);
-        cooldown = 4; // prevent spam
+        cooldown = 4;
+    }
+
+    private Direction getClosestFace(Vec3 from, BlockPos pos) {
+        Vec3 center = Vec3.atCenterOf(pos);
+        double dx = from.x - center.x, dy = from.y - center.y, dz = from.z - center.z;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > Math.abs(dz))
+            return dx > 0 ? Direction.WEST : Direction.EAST;
+        if (Math.abs(dy) > Math.abs(dz)) return dy > 0 ? Direction.DOWN : Direction.UP;
+        return dz > 0 ? Direction.NORTH : Direction.SOUTH;
     }
 }

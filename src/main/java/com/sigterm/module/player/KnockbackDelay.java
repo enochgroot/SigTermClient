@@ -4,49 +4,37 @@ import com.sigterm.module.Category;
 import com.sigterm.module.Module;
 import com.sigterm.module.Setting;
 import net.minecraft.world.phys.Vec3;
-import org.lwjgl.glfw.GLFW;
 
 public class KnockbackDelay extends Module {
-    private final Setting delayTicks;
-    private Vec3 savedMotion = null;
-    private int delayTimer = 0;
+    private final Setting cancelKnockback;
+    private Vec3 prevVelocity = null;
 
     public KnockbackDelay() {
-        super("KnockbackDelay", "Delay or cancel knockback from hits", Category.PLAYER, 0);
-        delayTicks = addSetting("Delay", 10, 0, 40, 5, " ticks");
+        super("KnockbackDelay", "Cancel knockback by detecting velocity spikes", Category.PLAYER, 0);
+        cancelKnockback = addSetting("Cancel", true, false, true, "");
     }
 
     @Override
     public void onTick() {
         if (mc().player == null) return;
-
-        // Check if we were just hit (knockback applies velocity change)
-        Vec3 currentMotion = mc().player.getDeltaMovement();
-        
-        // If delay timer is active, restore original motion
-        if (delayTimer > 0) {
-            delayTimer--;
-            if (savedMotion != null && delayTimer == 0) {
-                // After delay, apply the knockback (or don't if you want full cancel)
-                savedMotion = null;
-            } else if (savedMotion != null) {
-                // Keep original motion during delay = no knockback
-                mc().player.setDeltaMovement(savedMotion);
+        Vec3 current = mc().player.getDeltaMovement();
+        if (prevVelocity != null) {
+            double prevH = Math.sqrt(prevVelocity.x * prevVelocity.x + prevVelocity.z * prevVelocity.z);
+            double currH = Math.sqrt(current.x * current.x + current.z * current.z);
+            if (currH > prevH + 0.15 && currH > 0.3) {
+                if (cancelKnockback.value) {
+                    mc().player.setDeltaMovement(prevVelocity);
+                } else {
+                    double kbDiff = currH - prevH;
+                    Vec3 dir = current.normalize();
+                    double newH = prevH + kbDiff * 0.5;
+                    mc().player.setDeltaMovement(dir.x * newH, current.y, dir.z * newH);
+                }
             }
-            return;
         }
-
-        // Detect knockback: sudden velocity change not from player input
-        if (!mc().player.onGround() && mc().player.hurtTime > 0) {
-            // Player was just hit — save current motion and delay knockback
-            savedMotion = currentMotion;
-            delayTimer = (int) delayTicks.value;
-        }
+        prevVelocity = mc().player.getDeltaMovement();
     }
 
     @Override
-    public void onDisable() {
-        savedMotion = null;
-        delayTimer = 0;
-    }
+    public void onDisable() { prevVelocity = null; }
 }

@@ -5,7 +5,6 @@ import com.sigterm.module.Module;
 import com.sigterm.module.Setting;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import org.lwjgl.glfw.GLFW;
 
 public class TriggerBot extends Module {
     private final Setting range;
@@ -13,7 +12,7 @@ public class TriggerBot extends Module {
     private int tickTimer = 0;
 
     public TriggerBot() {
-        super("TriggerBot", "Auto-attack when crosshair is on an entity", Category.COMBAT, 0);
+        super("TriggerBot", "Auto-attack entity in crosshair (raycast)", Category.COMBAT, 0);
         range = addSetting("Range", 4.5, 2.0, 6.0, 0.5, "m");
         delayTicks = addSetting("Delay", 3, 0, 20, 1, " ticks");
     }
@@ -21,19 +20,13 @@ public class TriggerBot extends Module {
     @Override
     public void onTick() {
         if (mc().player == null || mc().level == null) return;
-
         tickTimer++;
         if (tickTimer < (int) delayTicks.value) return;
-
-        // crosshairPickEntity is a FIELD in MC 1.21.11, not a method
-        Entity target = mc().crosshairPickEntity;
-        
-        if (target instanceof LivingEntity living && living.isAlive() 
+        Entity target = mc().player.pick(range.value, 1.0f, false);
+        if (target instanceof LivingEntity living && living.isAlive()
             && target != mc().player && target.distanceTo(mc().player) <= range.value) {
-            
             float cooldown = mc().player.getAttackStrengthScale(0f);
             if (cooldown < 1.0f) return;
-
             mc().player.swing(mc().player.getUsedItemHand());
             mc().gameMode.attack(mc().player, target);
             mc().player.resetAttackStrengthTicker();

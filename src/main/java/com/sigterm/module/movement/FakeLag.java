@@ -3,43 +3,42 @@ package com.sigterm.module.movement;
 import com.sigterm.module.Category;
 import com.sigterm.module.Module;
 import com.sigterm.module.Setting;
+import net.minecraft.world.phys.Vec3;
 import org.lwjgl.glfw.GLFW;
 
 public class FakeLag extends Module {
-    private final Setting delayMs;
-    private final int PACKET_BUFFER_SIZE = 100;
-    
-    // Simple packet delay — hold movement packets for N ms
-    private long lastSendTime = 0;
+    private final Setting delayTicks;
+    private Vec3 savedPos = null;
+    private int tickCounter = 0;
 
     public FakeLag() {
-        super("FakeLag", "Delay packets to appear laggy (anti-cheat confusion)", Category.MOVEMENT, 0);
-        delayMs = addSetting("Delay", 200, 50, 1000, 50, "ms");
+        super("FakeLag", "Position desync — freeze locally then snap back", Category.MOVEMENT, 0);
+        delayTicks = addSetting("Delay", 10, 2, 40, 2, " ticks");
+    }
+
+    @Override
+    public void onEnable() {
+        if (mc().player != null) savedPos = mc().player.position();
+        tickCounter = 0;
     }
 
     @Override
     public void onTick() {
         if (mc().player == null) return;
-
-        long now = System.currentTimeMillis();
-        long delay = (long) delayMs.value;
-
-        // FakeLag works by desyncing client movement from server
-        // In MC 1.21.11, we simulate this by occasionally skipping position updates
-        // This is a simplified version — full packet-level FakeLag requires network mixins
-        
-        if (now - lastSendTime < delay) {
-            // Skip this tick's position update — server thinks we're lagging
-            // Set velocity to zero so client doesn't move during delay
-            mc().player.setDeltaMovement(0, mc().player.getDeltaMovement().y, 0);
-            return;
+        tickCounter++;
+        int delay = (int) delayTicks.value;
+        if (tickCounter <= delay) {
+            if (savedPos != null) {
+                mc().player.xo = savedPos.x; mc().player.yo = savedPos.y; mc().player.zo = savedPos.z;
+                mc().player.setPos(savedPos.x, savedPos.y, savedPos.z);
+            }
+            mc().player.setDeltaMovement(0, 0, 0);
+        } else {
+            tickCounter = 0;
+            if (mc().player != null) savedPos = mc().player.position();
         }
-
-        lastSendTime = now;
     }
 
     @Override
-    public void onDisable() {
-        lastSendTime = 0;
-    }
+    public void onDisable() { savedPos = null; tickCounter = 0; }
 }

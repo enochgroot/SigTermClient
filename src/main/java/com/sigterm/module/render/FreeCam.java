@@ -3,6 +3,7 @@ package com.sigterm.module.render;
 import com.sigterm.module.Category;
 import com.sigterm.module.Module;
 import com.sigterm.module.Setting;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.phys.Vec3;
 import org.lwjgl.glfw.GLFW;
 
@@ -11,46 +12,53 @@ public class FreeCam extends Module {
     private Vec3 savedPos = null;
 
     public FreeCam() {
-        super("FreeCam", "Move camera independently from player body", Category.RENDER, 0);
+        super("FreeCam", "Move camera independently from player body (spectator-like)", Category.RENDER, GLFW.GLFW_KEY_K);
         speed = addSetting("Speed", 3.0, 0.5, 10.0, 0.5, "x");
+    }
+
+    @Override
+    public void onEnable() {
+        if (mc().player != null) {
+            savedPos = mc().player.position();
+            mc().player.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.NO_GRAVITY, 25500, 0, false, false));
+            mc().player.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.INVISIBILITY, 25500, 1, false, false));
+            mc().player.setDeltaMovement(0, 0, 0);
+        }
     }
 
     @Override
     public void onTick() {
         if (mc().player == null) return;
-
-        // FreeCam works by modifying the render camera position
-        // In MC 1.21.11, we modify the player's render position
-        double spd = speed.value * 0.15;
-
+        double spd = speed.value * 0.12;
         float yaw = (float) Math.toRadians(mc().player.getYRot());
-        double forwardX = -Math.sin(yaw);
-        double forwardZ = Math.cos(yaw);
-        double strafeX = Math.cos(yaw);
-        double strafeZ = Math.sin(yaw);
-
+        double forwardX = -Math.sin(yaw), forwardZ = Math.cos(yaw);
+        double strafeX = Math.cos(yaw), strafeZ = Math.sin(yaw);
         double mx = 0, mz = 0;
         if (mc().options.keyUp.isDown())    { mx += forwardX; mz += forwardZ; }
         if (mc().options.keyDown.isDown())   { mx -= forwardX; mz -= forwardZ; }
         if (mc().options.keyLeft.isDown())   { mx += strafeX;  mz += strafeZ; }
         if (mc().options.keyRight.isDown())   { mx -= strafeX;  mz -= strafeZ; }
-
         double len = Math.sqrt(mx * mx + mz * mz);
         if (len > 0) { mx = mx / len * spd; mz = mz / len * spd; }
-
         double my = 0;
         if (mc().options.keyJump.isDown()) my = spd;
         else if (mc().options.keyShift.isDown()) my = -spd;
-
-        // Move camera position only (not actual player position)
-        // This is a client-side render offset — server doesn't see it
-        mc().player.setDeltaMovement(mx, my, mz);
+        mc().player.xo = mc().player.getX();
+        mc().player.yo = mc().player.getY();
+        mc().player.zo = mc().player.getZ();
+        Vec3 pos = mc().player.position();
+        mc().player.setPos(pos.x + mx, pos.y + my, pos.z + mz);
+        mc().player.setDeltaMovement(0, 0, 0);
     }
 
     @Override
     public void onDisable() {
-        if (mc().player != null) {
+        if (mc().player != null && savedPos != null) {
+            mc().player.setPos(savedPos.x, savedPos.y, savedPos.z);
             mc().player.setDeltaMovement(0, 0, 0);
+            mc().player.removeEffect(MobEffects.NO_GRAVITY);
+            mc().player.removeEffect(MobEffects.INVISIBILITY);
         }
+        savedPos = null;
     }
 }

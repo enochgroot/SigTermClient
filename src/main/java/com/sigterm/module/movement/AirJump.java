@@ -2,7 +2,6 @@ package com.sigterm.module.movement;
 
 import com.sigterm.module.Category;
 import com.sigterm.module.Module;
-import org.lwjgl.glfw.GLFW;
 
 public class AirJump extends Module {
     private boolean wasOnGround = false;
@@ -14,19 +13,14 @@ public class AirJump extends Module {
     @Override
     public void onTick() {
         if (mc().player == null) return;
-
         boolean onGround = mc().player.onGround();
-        
         if (wasOnGround && !onGround) {
-            // Just left ground — jump immediately to maintain momentum
-            mc().player.jumpFromGround();
+            var vel = mc().player.getDeltaMovement();
+            mc().player.setDeltaMovement(vel.x, 0.42, vel.z);
         }
-
         wasOnGround = onGround;
     }
 
     @Override
-    public void onDisable() {
-        wasOnGround = false;
-    }
+    public void onDisable() { wasOnGround = false; }
 }
