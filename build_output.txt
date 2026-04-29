@@ -6,6 +6,122 @@ Fabric Loom: 1.14.10
 Cannot remap modifiers because it does not exists in any of the targets [] or their parents.
 
 > Task :compileJava
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/movement/BoatFly.java:7: error: cannot find symbol
+import net.minecraft.world.entity.vehicle.Boat;
+                                         ^
+  symbol:   class Boat
+  location: package net.minecraft.world.entity.vehicle
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:20: error: method addSetting in class Module cannot be applied to given types;
+        showDiamonds = addSetting("Diamonds", true, false, true, "");
+                       ^
+  required: String,double,double,double,double,String
+  found:    String,boolean,boolean,boolean,String
+  reason: actual and formal argument lists differ in length
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:21: error: method addSetting in class Module cannot be applied to given types;
+        showGold = addSetting("Gold", true, false, true, "");
+                   ^
+  required: String,double,double,double,double,String
+  found:    String,boolean,boolean,boolean,String
+  reason: actual and formal argument lists differ in length
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:22: error: method addSetting in class Module cannot be applied to given types;
+        showIron = addSetting("Iron", false, false, true, "");
+                   ^
+  required: String,double,double,double,double,String
+  found:    String,boolean,boolean,boolean,String
+  reason: actual and formal argument lists differ in length
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:23: error: method addSetting in class Module cannot be applied to given types;
+        showChests = addSetting("Chests", true, false, true, "");
+                     ^
+  required: String,double,double,double,double,String
+  found:    String,boolean,boolean,boolean,String
+  reason: actual and formal argument lists differ in length
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:37: error: bad operand types for binary operator '&&'
+                    if (showDiamonds.value && (state.is(Blocks.DIAMOND_ORE) || state.is(Blocks.DEEPSLATE_DIAMOND_ORE))) { color = 0xFF44FFFF; draw = true; }
+                                           ^
+  first type:  double
+  second type: boolean
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:38: error: bad operand types for binary operator '&&'
+                    else if (showGold.value && (state.is(Blocks.GOLD_ORE) || state.is(Blocks.DEEPSLATE_GOLD_ORE))) { color = 0xFFFFAA00; draw = true; }
+                                            ^
+  first type:  double
+  second type: boolean
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:39: error: bad operand types for binary operator '&&'
+                    else if (showIron.value && (state.is(Blocks.IRON_ORE) || state.is(Blocks.DEEPSLATE_IRON_ORE))) { color = 0xFFAAAAAA; draw = true; }
+                                            ^
+  first type:  double
+  second type: boolean
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:40: error: bad operand types for binary operator '&&'
+                    else if (showChests.value && state.is(Blocks.CHEST)) { color = 0xFFFF8800; draw = true; }
+                                              ^
+  first type:  double
+  second type: boolean
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/FreeCam.java:23: error: cannot find symbol
+            mc().player.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.NO_GRAVITY, 25500, 0, false, false));
+                                                                                             ^
+  symbol:   variable NO_GRAVITY
+  location: class MobEffects
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/FreeCam.java:59: error: cannot find symbol
+            mc().player.removeEffect(MobEffects.NO_GRAVITY);
+                                               ^
+  symbol:   variable NO_GRAVITY
+  location: class MobEffects
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:20: error: method addSetting in class Module cannot be applied to given types;
+        showPlayers = addSetting("Players", true, false, true, "");
+                      ^
+  required: String,double,double,double,double,String
+  found:    String,boolean,boolean,boolean,String
+  reason: actual and formal argument lists differ in length
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:21: error: method addSetting in class Module cannot be applied to given types;
+        showMobs = addSetting("Mobs", true, false, true, "");
+                   ^
+  required: String,double,double,double,double,String
+  found:    String,boolean,boolean,boolean,String
+  reason: actual and formal argument lists differ in length
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:22: error: method addSetting in class Module cannot be applied to given types;
+        showAnimals = addSetting("Animals", false, false, true, "");
+                      ^
+  required: String,double,double,double,double,String
+  found:    String,boolean,boolean,boolean,String
+  reason: actual and formal argument lists differ in length
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:38: error: bad operand types for binary operator '&&'
+            if (entity instanceof Player && showPlayers.value) { color = 0xFFFF4444; draw = true; }
+                                         ^
+  first type:  boolean
+  second type: double
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:40: error: incompatible types: double cannot be converted to boolean
+                if (showMobs.value) { color = 0xFF44FF44; draw = true; }
+                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:41: error: incompatible types: double cannot be converted to boolean
+                else if (showAnimals.value) { color = 0xFF4488FF; draw = true; }
+                                    ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/player/KnockbackDelay.java:14: error: method addSetting in class Module cannot be applied to given types;
+        cancelKnockback = addSetting("Cancel", true, false, true, "");
+                          ^
+  required: String,double,double,double,double,String
+  found:    String,boolean,boolean,boolean,String
+  reason: actual and formal argument lists differ in length
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/player/KnockbackDelay.java:25: error: incompatible types: double cannot be converted to boolean
+                if (cancelKnockback.value) {
+                                   ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/player/AirPlace.java:37: error: cannot find symbol
+                Vec3 target = Vec3.atCenterOf(pos).add(face.getNormal().scale(0.5));
+                                                           ^
+  symbol:   method getNormal()
+  location: variable face of type Direction
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/player/AutoRefill.java:30: error: cannot find symbol
+                mc().gameMode.handleInventoryMouseClick(cid, i, 1, ClickType.SHIFT, mc().player);
+                                                                            ^
+  symbol:   variable SHIFT
+  location: class ClickType
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/KillAura.java:21: error: method addSetting in class Module cannot be applied to given types;
+        autoRotate = addSetting("Rotate", true, false, true, "");
+                     ^
+  required: String,double,double,double,double,String
+  found:    String,boolean,boolean,boolean,String
+  reason: actual and formal argument lists differ in length
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/KillAura.java:36: error: incompatible types: double cannot be converted to boolean
+        if (autoRotate.value) {
+                      ^
 /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/AutoCrystal.java:27: error: method addSetting in class Module cannot be applied to given types;
         autoAim = addSetting("AutoAim", true, false, true, " rotate to target");
                   ^
@@ -18,12 +134,30 @@ Cannot remap modifiers because it does not exists in any of the targets [] or th
 /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/AutoCrystal.java:68: error: incompatible types: double cannot be converted to boolean
                 if (autoAim.value) rotateToBlock(foundPos);
                            ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/TriggerBot.java:25: error: incompatible types: HitResult cannot be converted to Entity
+        Entity target = mc().player.pick(range.value, 1.0f, false);
+                                        ^
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/movement/BoatFly.java:21: error: cannot find symbol
+        if (!(vehicle instanceof Boat boat)) return;
+                                 ^
+  symbol:   class Boat
+  location: class BoatFly
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/movement/Fly.java:21: error: cannot find symbol
+            mc().player.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.NO_GRAVITY, 25500, 0, false, false));
+                                                                                             ^
+  symbol:   variable NO_GRAVITY
+  location: class MobEffects
+/home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/movement/Fly.java:53: error: cannot find symbol
+            mc().player.removeEffect(MobEffects.NO_GRAVITY);
+                                               ^
+  symbol:   variable NO_GRAVITY
+  location: class MobEffects
 Note: /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/SigTermClient.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-3 errors
+30 errors
 
 > Task :compileJava FAILED
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1777441466757.json
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1777497902461.json
 
 [Incubating] Problems report is available at: file:///home/runner/work/SigTermClient/SigTermClient/build/reports/problems/problems-report.html
 
@@ -33,6 +167,60 @@ FAILURE: Build failed with an exception.
 Execution failed for task ':compileJava'.
 > Compilation failed; see the compiler output below.
   Note: /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/SigTermClient.java uses or overrides a deprecated API.
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:20: error: method addSetting in class Module cannot be applied to given types;
+          showDiamonds = addSetting("Diamonds", true, false, true, "");
+                         ^
+    required: String,double,double,double,double,String
+    found:    String,boolean,boolean,boolean,String
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:21: error: method addSetting in class Module cannot be applied to given types;
+          showGold = addSetting("Gold", true, false, true, "");
+                     ^
+    required: String,double,double,double,double,String
+    found:    String,boolean,boolean,boolean,String
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:22: error: method addSetting in class Module cannot be applied to given types;
+          showIron = addSetting("Iron", false, false, true, "");
+                     ^
+    required: String,double,double,double,double,String
+    found:    String,boolean,boolean,boolean,String
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:23: error: method addSetting in class Module cannot be applied to given types;
+          showChests = addSetting("Chests", true, false, true, "");
+                       ^
+    required: String,double,double,double,double,String
+    found:    String,boolean,boolean,boolean,String
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:20: error: method addSetting in class Module cannot be applied to given types;
+          showPlayers = addSetting("Players", true, false, true, "");
+                        ^
+    required: String,double,double,double,double,String
+    found:    String,boolean,boolean,boolean,String
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:21: error: method addSetting in class Module cannot be applied to given types;
+          showMobs = addSetting("Mobs", true, false, true, "");
+                     ^
+    required: String,double,double,double,double,String
+    found:    String,boolean,boolean,boolean,String
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:22: error: method addSetting in class Module cannot be applied to given types;
+          showAnimals = addSetting("Animals", false, false, true, "");
+                        ^
+    required: String,double,double,double,double,String
+    found:    String,boolean,boolean,boolean,String
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/player/KnockbackDelay.java:14: error: method addSetting in class Module cannot be applied to given types;
+          cancelKnockback = addSetting("Cancel", true, false, true, "");
+                            ^
+    required: String,double,double,double,double,String
+    found:    String,boolean,boolean,boolean,String
+    reason: actual and formal argument lists differ in length
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/KillAura.java:21: error: method addSetting in class Module cannot be applied to given types;
+          autoRotate = addSetting("Rotate", true, false, true, "");
+                       ^
+    required: String,double,double,double,double,String
+    found:    String,boolean,boolean,boolean,String
+    reason: actual and formal argument lists differ in length
   /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/AutoCrystal.java:27: error: method addSetting in class Module cannot be applied to given types;
           autoAim = addSetting("AutoAim", true, false, true, " rotate to target");
                     ^
@@ -40,13 +228,93 @@ Execution failed for task ':compileJava'.
     found:    String,boolean,boolean,boolean,String
     reason: actual and formal argument lists differ in length
   Note: Recompile with -Xlint:deprecation for details.
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:40: error: incompatible types: double cannot be converted to boolean
+                  if (showMobs.value) { color = 0xFF44FF44; draw = true; }
+                              ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:41: error: incompatible types: double cannot be converted to boolean
+                  else if (showAnimals.value) { color = 0xFF4488FF; draw = true; }
+                                      ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/player/KnockbackDelay.java:25: error: incompatible types: double cannot be converted to boolean
+                  if (cancelKnockback.value) {
+                                     ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/KillAura.java:36: error: incompatible types: double cannot be converted to boolean
+          if (autoRotate.value) {
+                        ^
   /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/AutoCrystal.java:42: error: incompatible types: double cannot be converted to boolean
               if (autoAim.value) rotateToEntity(crystal);
                          ^
   /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/AutoCrystal.java:68: error: incompatible types: double cannot be converted to boolean
                   if (autoAim.value) rotateToBlock(foundPos);
                              ^
-  3 errors
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/combat/TriggerBot.java:25: error: incompatible types: HitResult cannot be converted to Entity
+          Entity target = mc().player.pick(range.value, 1.0f, false);
+                                          ^
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/movement/BoatFly.java:7: error: cannot find symbol
+  import net.minecraft.world.entity.vehicle.Boat;
+                                           ^
+    symbol:   class Boat
+    location: package net.minecraft.world.entity.vehicle
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/FreeCam.java:23: error: cannot find symbol
+              mc().player.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.NO_GRAVITY, 25500, 0, false, false));
+                                                                                               ^
+    symbol:   variable NO_GRAVITY
+    location: class MobEffects
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/FreeCam.java:59: error: cannot find symbol
+              mc().player.removeEffect(MobEffects.NO_GRAVITY);
+                                                 ^
+    symbol:   variable NO_GRAVITY
+    location: class MobEffects
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/player/AutoRefill.java:30: error: cannot find symbol
+                  mc().gameMode.handleInventoryMouseClick(cid, i, 1, ClickType.SHIFT, mc().player);
+                                                                              ^
+    symbol:   variable SHIFT
+    location: class ClickType
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/movement/BoatFly.java:21: error: cannot find symbol
+          if (!(vehicle instanceof Boat boat)) return;
+                                   ^
+    symbol:   class Boat
+    location: class BoatFly
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/movement/Fly.java:21: error: cannot find symbol
+              mc().player.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.NO_GRAVITY, 25500, 0, false, false));
+                                                                                               ^
+    symbol:   variable NO_GRAVITY
+    location: class MobEffects
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/movement/Fly.java:53: error: cannot find symbol
+              mc().player.removeEffect(MobEffects.NO_GRAVITY);
+                                                 ^
+    symbol:   variable NO_GRAVITY
+    location: class MobEffects
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:37: error: bad operand types for binary operator '&&'
+                      if (showDiamonds.value && (state.is(Blocks.DIAMOND_ORE) || state.is(Blocks.DEEPSLATE_DIAMOND_ORE))) { color = 0xFF44FFFF; draw = true; }
+                                             ^
+    first type:  double
+    second type: boolean
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:38: error: bad operand types for binary operator '&&'
+                      else if (showGold.value && (state.is(Blocks.GOLD_ORE) || state.is(Blocks.DEEPSLATE_GOLD_ORE))) { color = 0xFFFFAA00; draw = true; }
+                                              ^
+    first type:  double
+    second type: boolean
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:39: error: bad operand types for binary operator '&&'
+                      else if (showIron.value && (state.is(Blocks.IRON_ORE) || state.is(Blocks.DEEPSLATE_IRON_ORE))) { color = 0xFFAAAAAA; draw = true; }
+                                              ^
+    first type:  double
+    second type: boolean
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/BlockESP.java:40: error: bad operand types for binary operator '&&'
+                      else if (showChests.value && state.is(Blocks.CHEST)) { color = 0xFFFF8800; draw = true; }
+                                                ^
+    first type:  double
+    second type: boolean
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/render/MobESP.java:38: error: bad operand types for binary operator '&&'
+              if (entity instanceof Player && showPlayers.value) { color = 0xFFFF4444; draw = true; }
+                                           ^
+    first type:  boolean
+    second type: double
+  /home/runner/work/SigTermClient/SigTermClient/src/main/java/com/sigterm/module/player/AirPlace.java:37: error: cannot find symbol
+                  Vec3 target = Vec3.atCenterOf(pos).add(face.getNormal().scale(0.5));
+                                                             ^
+    symbol:   method getNormal()
+    location: variable face of type Direction
+  30 errors
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
@@ -58,5 +326,5 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 21s
+BUILD FAILED in 19s
 1 actionable task: 1 executed
