@@ -3,7 +3,6 @@ package com.sigterm.module.render;
 import com.sigterm.module.Category;
 import com.sigterm.module.Module;
 import com.sigterm.module.Setting;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.phys.Vec3;
 import org.lwjgl.glfw.GLFW;
 
@@ -20,8 +19,7 @@ public class FreeCam extends Module {
     public void onEnable() {
         if (mc().player != null) {
             savedPos = mc().player.position();
-            mc().player.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.NO_GRAVITY, 25500, 0, false, false));
-            mc().player.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.INVISIBILITY, 25500, 1, false, false));
+            mc().player.noGravity = true;
             mc().player.setDeltaMovement(0, 0, 0);
         }
     }
@@ -56,8 +54,7 @@ public class FreeCam extends Module {
         if (mc().player != null && savedPos != null) {
             mc().player.setPos(savedPos.x, savedPos.y, savedPos.z);
             mc().player.setDeltaMovement(0, 0, 0);
-            mc().player.removeEffect(MobEffects.NO_GRAVITY);
-            mc().player.removeEffect(MobEffects.INVISIBILITY);
+            mc().player.noGravity = false;
         }
         savedPos = null;
     }

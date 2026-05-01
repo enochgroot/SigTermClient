@@ -3,7 +3,6 @@ package com.sigterm.module.movement;
 import com.sigterm.module.Category;
 import com.sigterm.module.Module;
 import com.sigterm.module.Setting;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.phys.Vec3;
 import org.lwjgl.glfw.GLFW;
 
@@ -18,7 +17,7 @@ public class Fly extends Module {
     @Override
     public void onEnable() {
         if (mc().player != null)
-            mc().player.addEffect(new net.minecraft.world.effect.MobEffectInstance(MobEffects.NO_GRAVITY, 25500, 0, false, false));
+            mc().player.noGravity = true;
     }
 
     @Override
@@ -50,7 +49,7 @@ public class Fly extends Module {
     @Override
     public void onDisable() {
         if (mc().player != null) {
-            mc().player.removeEffect(MobEffects.NO_GRAVITY);
+            mc().player.noGravity = false;
             mc().player.setDeltaMovement(0, 0, 0);
         }
     }

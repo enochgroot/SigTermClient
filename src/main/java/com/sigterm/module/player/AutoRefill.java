@@ -27,7 +27,7 @@ public class AutoRefill extends Module {
         for (int i = 9; i < 36 && i < container.slots.size(); i++) {
             ItemStack stack = container.slots.get(i).getItem();
             if (!stack.isEmpty() && ItemStack.isSameItemSameComponents(stack, mainHand)) {
-                mc().gameMode.handleInventoryMouseClick(cid, i, 1, ClickType.SHIFT, mc().player);
+                mc().gameMode.handleInventoryMouseClick(cid, i, 1, ClickType.PICKUP, mc().player);
                 cooldown = 3;
                 return;
             }

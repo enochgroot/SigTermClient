@@ -34,10 +34,10 @@ public class BlockESP extends Module {
                     BlockPos pos = new BlockPos(x, y, z);
                     var state = mc.level.getBlockState(pos);
                     int color = 0; boolean draw = false;
-                    if (showDiamonds.value && (state.is(Blocks.DIAMOND_ORE) || state.is(Blocks.DEEPSLATE_DIAMOND_ORE))) { color = 0xFF44FFFF; draw = true; }
-                    else if (showGold.value && (state.is(Blocks.GOLD_ORE) || state.is(Blocks.DEEPSLATE_GOLD_ORE))) { color = 0xFFFFAA00; draw = true; }
-                    else if (showIron.value && (state.is(Blocks.IRON_ORE) || state.is(Blocks.DEEPSLATE_IRON_ORE))) { color = 0xFFAAAAAA; draw = true; }
-                    else if (showChests.value && state.is(Blocks.CHEST)) { color = 0xFFFF8800; draw = true; }
+                    if (showDiamonds.value > 0.5 && (state.is(Blocks.DIAMOND_ORE) || state.is(Blocks.DEEPSLATE_DIAMOND_ORE))) { color = 0xFF44FFFF; draw = true; }
+                    else if (showGold.value > 0.5 && (state.is(Blocks.GOLD_ORE) || state.is(Blocks.DEEPSLATE_GOLD_ORE))) { color = 0xFFFFAA00; draw = true; }
+                    else if (showIron.value > 0.5 && (state.is(Blocks.IRON_ORE) || state.is(Blocks.DEEPSLATE_IRON_ORE))) { color = 0xFFAAAAAA; draw = true; }
+                    else if (showChests.value > 0.5 && state.is(Blocks.CHEST)) { color = 0xFFFF8800; draw = true; }
                     if (!draw) continue;
                     double dist = mc.player.distanceToSqr(x + 0.5, y + 0.5, z + 0.5);
                     if (dist > r * r) continue;

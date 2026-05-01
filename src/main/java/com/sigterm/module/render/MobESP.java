@@ -35,10 +35,10 @@ public class MobESP extends Module {
             double dist = entity.distanceTo(mc.player);
             if (dist > r) continue;
             int color = 0; boolean draw = false;
-            if (entity instanceof Player && showPlayers.value) { color = 0xFFFF4444; draw = true; }
+            if (entity instanceof Player && showPlayers.value > 0.5) { color = 0xFFFF4444; draw = true; }
             else if (entity instanceof LivingEntity && !(entity instanceof Player)) {
-                if (showMobs.value) { color = 0xFF44FF44; draw = true; }
-                else if (showAnimals.value) { color = 0xFF4488FF; draw = true; }
+                if (showMobs.value > 0.5) { color = 0xFF44FF44; draw = true; }
+                else if (showAnimals.value > 0.5) { color = 0xFF4488FF; draw = true; }
             }
             if (!draw) continue;
             double dx = entity.getX() - mc.player.getX();

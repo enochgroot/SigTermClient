@@ -4,7 +4,6 @@ import com.sigterm.module.Category;
 import com.sigterm.module.Module;
 import com.sigterm.module.Setting;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.vehicle.Boat;
 
 public class BoatFly extends Module {
     private final Setting speed;
@@ -18,7 +17,7 @@ public class BoatFly extends Module {
     public void onTick() {
         if (mc().player == null) return;
         Entity vehicle = mc().player.getVehicle();
-        if (!(vehicle instanceof Boat boat)) return;
+        if (vehicle == null || vehicle instanceof net.minecraft.world.entity.LivingEntity) return;
         double spd = speed.value * 0.15;
         float yaw = (float) Math.toRadians(mc().player.getYRot());
         double forwardX = -Math.sin(yaw), forwardZ = Math.cos(yaw);
@@ -33,9 +32,9 @@ public class BoatFly extends Module {
         double my = 0;
         if (mc().options.keyJump.isDown()) my = spd;
         else if (mc().options.keyShift.isDown()) my = -spd;
-        boat.xo = boat.getX(); boat.yo = boat.getY(); boat.zo = boat.getZ();
-        var pos = boat.position();
-        boat.setPos(pos.x + mx, pos.y + my, pos.z + mz);
-        boat.setDeltaMovement(0, 0, 0);
+        vehicle.xo = vehicle.getX(); vehicle.yo = vehicle.getY(); vehicle.zo = vehicle.getZ();
+        var pos = vehicle.position();
+        vehicle.setPos(pos.x + mx, pos.y + my, pos.z + mz);
+        vehicle.setDeltaMovement(0, 0, 0);
     }
 }

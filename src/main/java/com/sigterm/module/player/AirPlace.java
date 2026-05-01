@@ -34,8 +34,8 @@ public class AirPlace extends Module {
             BlockPos pos = BlockPos.containing(check);
             if (!mc().level.getBlockState(pos).isAir()) {
                 Direction face = getClosestFace(eye, pos);
-                Vec3 target = Vec3.atCenterOf(pos).add(face.getNormal().scale(0.5));
-                BlockHitResult fakeHit = new BlockHitResult(target, face, pos.above(face.getStepY()), false);
+                Vec3 target = Vec3.atCenterOf(pos).add(face.getUnitVector().scale(0.5));
+                BlockHitResult fakeHit = new BlockHitResult(target, face, pos.relative(face), false);
                 mc().gameMode.useItemOn(mc().player, InteractionHand.MAIN_HAND, fakeHit);
                 cooldown = 4;
                 return;
